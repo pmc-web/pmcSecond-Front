@@ -16,7 +16,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es5",
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": ".",
+    "typeRoots": ["types"]
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]

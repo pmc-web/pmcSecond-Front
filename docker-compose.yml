@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  pmc-front:
+    build: .
+    volumes:
+      - "./:/app"
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
