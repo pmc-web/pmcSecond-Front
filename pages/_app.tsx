@@ -1,6 +1,7 @@
+import { AppProps } from "next/app";
 import wrapper from "../store/store";
 
-function MyApp({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
 
