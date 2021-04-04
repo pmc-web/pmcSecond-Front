@@ -1,5 +1,5 @@
-import { HYDRATE } from "next-redux-wrapper";
-import { combineReducers } from "redux";
+import { HYDRATE } from 'next-redux-wrapper';
+import { combineReducers } from 'redux';
 
 const rootReducer = (state: any, action: any) => {
   switch (action.type) {
