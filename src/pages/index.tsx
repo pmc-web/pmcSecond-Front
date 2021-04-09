@@ -25,7 +25,7 @@ const IndexPage = () => {
             <a>About</a>
           </Link>
           <div css={testStyle}>
-            <p>dddddd</p>
+            <p>자동배포될라나...안될라나 (배포완료👍)</p>
           </div>
         </p>
       </Layout>
