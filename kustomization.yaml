@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: "market-universe-sha256-1"
-        image: "gcr.io/gentle-habitat-309914/market-universe@sha256:market-image"
+        image: "gcr.io/gentle-habitat-309914/market-universe@sha256:$GITHUB_SHA"
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
