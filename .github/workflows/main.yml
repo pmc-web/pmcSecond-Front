@@ -63,6 +63,5 @@ jobs:
       - name: Deploy
         run: |-
           kubectl set image deployment/$DEPLOYMENT_NAME market-universe-sha256-1=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA --record
-          kubectl build . | kubectl apply -f -
           kubectl rollout status deployment/$DEPLOYMENT_NAME
           kubectl get services -o wide
