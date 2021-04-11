@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { css } from '@emotion/react';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Layout from 'src/components/Layout';
 import { useSampleMutation, useSampleQuery } from 'src/modules/sample';
-import { useEffect } from 'react';
+
+import SampleChart from 'src/components/SampleChart';
 
 const IndexPage = () => {
   const test = useSampleQuery(10);
@@ -22,6 +24,7 @@ const IndexPage = () => {
   return (
     <>
       <Layout title="Home | Next.js + TypeScript Example">
+        <SampleChart />
         <h1>Hello Next.js 👋</h1>
         <p>
           <Link href="/about">
