@@ -9,6 +9,7 @@ const initialState: SampleState = {
   get: { error: false, loading: false, data: null },
   post: { error: false, loading: false, data: null },
 };
+
 const sampleSlice = createSlice({
   name: 'sample',
   initialState: initialState as SampleState,
