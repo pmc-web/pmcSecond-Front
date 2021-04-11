@@ -2,20 +2,23 @@ import Link from 'next/link';
 import { css } from '@emotion/react';
 
 import Layout from 'src/components/Layout';
-import { useDispatch } from 'react-redux';
+import { useSampleMutation, useSampleQuery } from 'src/modules/sample';
 import { useEffect } from 'react';
-import useSample from 'src/hooks/selectors/sample/useSample';
-import { sampleActions } from 'src/modules/sample/slice';
 
 const IndexPage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(sampleActions.getRequest());
+  const test = useSampleQuery(10);
+  const postTest = useSampleMutation({ mutationKey: 'test' });
 
-    dispatch(sampleActions.postRequest('test'));
-  }, [dispatch]);
-  const sample = useSample();
-  console.log(sample);
+  const handleClick = () => {
+    postTest.mutate(10, {
+      onSuccess: ({ data }) => {
+        console.log(data);
+      },
+      onError: (error) => {
+        console.log(error.message);
+      },
+    });
+  };
   return (
     <>
       <Layout title="Home | Next.js + TypeScript Example">
@@ -27,6 +30,9 @@ const IndexPage = () => {
           <div css={testStyle}>
             <p>자동배포될라나...안될라나 (배포완료👍)</p>
           </div>
+          <button type="button" onClick={handleClick}>
+            test
+          </button>
         </p>
       </Layout>
     </>
