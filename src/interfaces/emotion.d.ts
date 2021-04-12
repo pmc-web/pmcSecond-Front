@@ -2,12 +2,15 @@ import '@emotion/react';
 
 type ColorType = {
   white: string;
+  purple050: string;
+  grey030: string;
 };
 
 type ButtonProps = {
   color: string;
   'background-color': string;
-  'border-color': string;
+  border: string;
+  cursor: string;
 };
 
 type ButtonType = {
