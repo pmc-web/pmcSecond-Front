@@ -7,7 +7,8 @@ type ColorType = {
 type ButtonProps = {
   color: string;
   'background-color': string;
-  'border-color': string;
+  border: string;
+  cursor: string;
 };
 
 type ButtonType = {

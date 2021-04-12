@@ -16,7 +16,7 @@ const IndexPage = () => {
       onSuccess: ({ data }) => {
         console.log(data);
       },
-      onError: (error) => {
+      onError: (error: any) => {
         console.log(error.message);
       },
     });

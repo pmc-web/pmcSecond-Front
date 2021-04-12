@@ -3,26 +3,28 @@ import { css } from '@emotion/react';
 type Props = {
   leftIcon?: Array<string>;
   rightIcon?: Array<string>;
-  onClick?: any;
+  title?: string;
+  onClick?: Function;
 };
 
-const TopBar = ({ leftIcon = ['왼쪽'], rightIcon = ['오른쪽'], onClick }: Props) => {
+const TopBar = ({ leftIcon = ['왼쪽'], title, rightIcon = ['오른쪽'], onClick }: Props) => {
   return (
     <header css={topBarStyle}>
-      <div>
+      <ul>
         {leftIcon.map((icon) => (
-          <div key={icon} onClick={() => onClick(icon)}>
-            {icon}
-          </div>
+          <li key={icon} onClick={onClick && onClick(icon)}>
+            <span>{icon}</span>
+          </li>
         ))}
-      </div>
-      <div>
+      </ul>
+      <h1>{title}</h1>
+      <ul>
         {rightIcon.map((icon) => (
-          <div key={icon} onClick={() => onClick(icon)}>
-            {icon}
-          </div>
+          <li key={icon} onClick={onClick && onClick(icon)}>
+            <span>{icon}</span>
+          </li>
         ))}
-      </div>
+      </ul>
     </header>
   );
 };
@@ -35,4 +37,7 @@ const topBarStyle = css`
   background-color: hotpink;
   height: 3em;
   padding: 0px 20px;
+  &li {
+    list-style: none;
+  }
 `;
