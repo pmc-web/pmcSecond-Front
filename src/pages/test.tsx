@@ -9,7 +9,7 @@ const Test = () => {
   return (
     <div>
       <SideBar visible={showSideBar} onClickBackground={toggleShowSideBar}>
-        <div>test</div>
+        <div style={{ width: '100%', backgroundColor: 'red' }}>test</div>
         <div>test</div>
         <div>test</div>
         <div>test</div>

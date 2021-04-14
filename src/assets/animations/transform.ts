@@ -16,3 +16,12 @@ export const inFromRightToLeft = keyframes`
     transform: translateX(0);
   }
 `;
+
+export const outRightToLeft = keyframes`
+from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+`;
