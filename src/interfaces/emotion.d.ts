@@ -1,6 +1,6 @@
 import '@emotion/react';
 
-type ColorType = {
+export type ColorType = {
   white: string;
 };
 
@@ -10,7 +10,7 @@ type ButtonProps = {
   'border-color': string;
 };
 
-type ButtonType = {
+export type ButtonType = {
   primary: ButtonProps;
 };
 
@@ -20,7 +20,7 @@ type FontProps = {
   'line-height': string;
 };
 
-type FontSizeType = {
+export type FontSizeType = {
   title: FontProps;
   body: FontProps;
   largeTitle: FontProps;
