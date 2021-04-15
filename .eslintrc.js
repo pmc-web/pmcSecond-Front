@@ -25,11 +25,11 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/jsx-props-no-spreading': 'off',
     'import/extensions': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'react/no-unescaped-entities': 'off',
     'import/no-cycle': [0, { ignoreExternal: true }],
     'prefer-const': 'off',

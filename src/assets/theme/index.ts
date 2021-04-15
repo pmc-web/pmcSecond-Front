@@ -1,12 +1,12 @@
 import { Theme } from '@emotion/react';
 
-const color = { white: '#fff', skyblue: '#87CEEE' };
+const color = { white: '#fff', purple050: '#6040FF', grey030: '#EBE5F9' };
 
 const button = {
   primary: {
-    'background-color': 'white',
-    color: color.skyblue,
-    border: '1px solid #87CEEE',
+    'background-color': color.purple050,
+    color: 'white',
+    border: 'none',
     cursor: 'pointer',
   },
 };

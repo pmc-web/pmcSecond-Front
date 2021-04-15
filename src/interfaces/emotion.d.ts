@@ -2,6 +2,8 @@ import '@emotion/react';
 
 type ColorType = {
   white: string;
+  purple050: string;
+  grey030: string;
 };
 
 type ButtonProps = {
