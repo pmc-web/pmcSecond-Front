@@ -1,10 +1,11 @@
 import { css } from '@emotion/react';
 import { ReactNode } from 'react';
+import { ColorType, FontSizeType } from 'src/interfaces/emotion';
 
 type TextProps = {
   children: ReactNode;
-  size?: 'body' | 'title' | 'largeTitle';
-  color?: string;
+  size?: keyof FontSizeType;
+  color?: keyof ColorType;
 };
 
 const Text = ({ children, size, color }: TextProps) => (
@@ -12,7 +13,7 @@ const Text = ({ children, size, color }: TextProps) => (
     css={(theme) =>
       css`
         ${size && theme.fontSize[size]};
-        color: ${color};
+        color: ${theme.color[color || 'black']};
       `
     }
   >
