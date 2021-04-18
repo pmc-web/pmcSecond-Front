@@ -65,14 +65,15 @@ export type FontSizeType = {
 };
 
 type CommonStyleProps = {
-  display: string;
+  display?: string;
   'flex-direction'?: string;
-  'justify-content': string;
-  'align-items': string;
+  'justify-content'?: string;
+  'align-items'?: string;
 };
 
 type CommonStyleType = {
   flexCenter: CommonStyleProps;
+  flexColomn: CommonStyleProps;
 };
 
 declare module '@emotion/react' {

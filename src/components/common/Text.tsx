@@ -33,7 +33,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
@@ -46,7 +46,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
@@ -59,7 +59,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
@@ -72,7 +72,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
@@ -85,7 +85,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
@@ -98,7 +98,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
@@ -111,7 +111,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${color};
+              color: ${theme.color[color || 'black']};
             `
           }
         >
