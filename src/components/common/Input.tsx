@@ -33,6 +33,7 @@ const Input = ({ name, label, css: inputCss, defaultValue, register, required, p
         htmlFor={label}
         css={(themes) =>
           css`
+            display: block;
             color: ${themes.color.grey030};
           `
         }
