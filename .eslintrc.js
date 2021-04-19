@@ -29,6 +29,7 @@ module.exports = {
     'import/extensions': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'react/no-unescaped-entities': 'off',
     'import/no-cycle': [0, { ignoreExternal: true }],

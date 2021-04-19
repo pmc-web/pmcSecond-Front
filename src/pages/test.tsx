@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 import Icon from 'src/components/common/Icon';
 import SideBar from 'src/components/common/SideBar';
+import Tab from 'src/components/common/tab/Tab';
 
 const Test = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -33,6 +34,10 @@ const Test = () => {
       <button type="button" onClick={toggleShowSideBar}>
         sidebar
       </button>
+      <Tab>
+        <Tab.TabItem label="test1">te1t</Tab.TabItem>
+        <Tab.TabItem label="test2">test</Tab.TabItem>
+      </Tab>
     </div>
   );
 };
