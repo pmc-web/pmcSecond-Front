@@ -42,10 +42,12 @@ const iconMap = {
   wishOn: WishOnSvg,
 };
 
+export type IconKeyType = keyof typeof iconMap;
+
 type IconProp = {
-  name: keyof typeof iconMap;
+  name: IconKeyType;
   size: string;
-  color: keyof ColorType;
+  color?: keyof ColorType;
 };
 
 const Icon = ({ name, size, color }: IconProp) => {
@@ -53,7 +55,7 @@ const Icon = ({ name, size, color }: IconProp) => {
   return (
     <IconSvg
       css={(theme) => css`
-        color: ${theme.color[color] ?? theme.color.white}; // FIXME: default color로 변경
+        color: ${color ? theme.color[color] : theme.color.black};
       `}
       width={size}
       height={size}
