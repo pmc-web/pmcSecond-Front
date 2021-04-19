@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import { useState } from 'react';
 import Icon from 'src/components/common/Icon';
+import Loading from 'src/components/common/logo/Loading';
+import Logo from 'src/components/common/logo/Logo';
 import SideBar from 'src/components/common/SideBar';
 import Tab from 'src/components/common/tab/Tab';
 
@@ -11,6 +13,7 @@ const Test = () => {
   };
   return (
     <div>
+      <Loading />
       <SideBar visible={showSideBar} onClickBackground={toggleShowSideBar}>
         <div
           css={css`
@@ -38,6 +41,7 @@ const Test = () => {
         <Tab.TabItem label="test1">te1t</Tab.TabItem>
         <Tab.TabItem label="test2">test</Tab.TabItem>
       </Tab>
+      <Logo />
     </div>
   );
 };
