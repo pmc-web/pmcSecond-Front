@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import bounce from 'src/assets/animations/bounce';
 import Logo from './Logo';
 
-const Loading = () => (
+const Splash = () => (
   <div
     css={(theme) => css`
       ${theme.commonStyle.flexCenter}
@@ -19,4 +19,4 @@ const Loading = () => (
   </div>
 );
 
-export default Loading;
+export default Splash;
