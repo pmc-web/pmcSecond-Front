@@ -82,16 +82,14 @@ const Input = ({
           css={(themes) => [
             css`
               margin-top: 0.5em;
-              border: 2px solid
-                ${valid !== 'error' ? themes.color.grey030 : themes.color.red040};
+              border: 2px solid ${valid !== 'error' ? themes.color.grey030 : themes.color.red040};
               padding: 1.05em;
               border-radius: 6px;
               color: ${themes.color.black};
               ${themes.fontSize.subtitle3};
               &:focus {
                 outline: 0;
-                border: 2px solid
-                  ${valid !== 'error' ? themes.color.purple050 : themes.color.red040};
+                border: 2px solid ${valid !== 'error' ? themes.color.purple050 : themes.color.red040};
               }
             `,
             inputCss,
