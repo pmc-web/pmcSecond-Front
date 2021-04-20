@@ -14,12 +14,12 @@ type InputProps = {
   pattern?: ValidationRule<RegExp>;
   css?: ReturnType<typeof css>;
   label?: string;
-  icon?: 'success' | 'error';
+  valid?: 'success' | 'error';
 };
 
 const Input = ({
   disabled = false,
-  icon,
+  valid,
   name,
   label,
   css: inputCss,
@@ -31,7 +31,7 @@ const Input = ({
   const focus = useRef<HTMLLabelElement>(null);
   const onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     if (ev.target.value !== '') {
-      if (icon === 'success') {
+      if (valid === 'success') {
         if (focus.current) {
           focus.current.style.color = theme.color.purple050;
         }
@@ -46,7 +46,7 @@ const Input = ({
 
   const onFocus = (ev: React.FocusEvent<HTMLInputElement>) => {
     if (ev.target.value !== '') {
-      if (icon === 'success') {
+      if (valid === 'success') {
         if (focus.current) {
           focus.current.style.color = theme.color.purple050;
         }
@@ -89,7 +89,7 @@ const Input = ({
               ${themes.fontSize.subtitle3};
               &:focus {
                 outline: 0;
-                border: 1px solid ${icon === 'success' ? themes.color.purple050 : 'red'};
+                border: 1px solid ${valid === 'success' ? themes.color.purple050 : 'red'};
               }
             `,
             inputCss,
@@ -106,8 +106,11 @@ const Input = ({
             transform: translate(50%, -50%);
           `}
         >
-          {icon === 'success' ? <Icon name="check" size="18" color="green020" /> : null}
-          {icon === 'error' ? <Icon name="error" size="18" color="red040" /> : null}
+          {valid === 'success' ? (
+            <Icon name="check" size="18" color="green020" />
+          ) : (
+            <Icon name="error" size="18" color="red040" />
+          )}
         </span>
       </div>
     </div>
