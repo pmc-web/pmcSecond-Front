@@ -8,6 +8,14 @@ const GlobalStyle = () => (
       *, *::after, *::before {
         box-sizing: border-box;
       }
+      button {
+        background-color: #fff;
+        border: none;
+        padding: 0;
+        :focus {
+          outline: none;
+        }
+      }
     `}
   />
 );

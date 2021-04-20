@@ -5,13 +5,14 @@ import { inFromLeftToRight, outRightToLeft } from 'src/assets/animations/transfo
 
 type SideBarProps = {
   children: ReactNode;
-  css?: ReturnType<typeof css>;
   width?: string;
   visible: boolean;
+  headerComponent?: ReactNode;
+  footerComponent?: ReactNode;
   onClickBackground: () => void;
 };
 
-const SideBar = ({ children, css: propCss, width, visible, onClickBackground }: SideBarProps) => {
+const SideBar = ({ children, width, visible, headerComponent, footerComponent, onClickBackground }: SideBarProps) => {
   const [wrapperClassName, setWrapperClassName] = useState('none');
   useEffect(() => {
     if (visible) {
@@ -60,20 +61,28 @@ const SideBar = ({ children, css: propCss, width, visible, onClickBackground }: 
         `}
       />
       <div
-        css={[
-          propCss,
-          css`
-            height: 100%;
-            position: relative;
-            height: 100vh;
-            background-color: white;
-            width: ${width || '70vw'};
-            display: flex;
-            flex-direction: column;
-          `,
-        ]}
+        css={css`
+          position: relative;
+          height: 100vh;
+          background-color: white;
+          width: ${width || '70vw'};
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        `}
       >
-        {children}
+        <ul>
+          {headerComponent}
+          {children}
+        </ul>
+        <div
+          css={(theme) => css`
+            ${theme.commonStyle.flexCenter}
+            margin-bottom: 1.25rem;
+          `}
+        >
+          {footerComponent}
+        </div>
       </div>
     </aside>
   );
