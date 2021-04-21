@@ -7,10 +7,20 @@ type CheckBoxProps = {
   onClick: ReactEventHandler;
   checked: boolean;
   title?: string;
+  id: string;
   font?: keyof FontSizeType;
 };
 
-const CheckBox = ({ title, font = 'body1', onClick, checked }: CheckBoxProps) => (
+// const [check, setCheck] = useState({ test: false, test2: false });
+
+//   const { id, checked } = ev.target as HTMLInputElement;
+//     setCheck((prev) => ({ ...prev, [id]: checked }));
+//   };
+
+// <CheckBox id="test" checked={check.test} onClick={onClick} />
+// <CheckBox id="test2" checked={check.test2} onClick={onClick} />
+
+const CheckBox = ({ title, id, font = 'body1', onClick, checked }: CheckBoxProps) => (
   <div
     css={(theme) =>
       css`
@@ -24,7 +34,7 @@ const CheckBox = ({ title, font = 'body1', onClick, checked }: CheckBoxProps) =>
         display: none;
       `}
       type="checkbox"
-      id="check"
+      id={id}
       onClick={onClick}
     />
     <label
@@ -32,7 +42,7 @@ const CheckBox = ({ title, font = 'body1', onClick, checked }: CheckBoxProps) =>
         cursor: pointer;
         margin-right: 1em;
       `}
-      htmlFor="check"
+      htmlFor={id}
     >
       {checked ? (
         <Icon name="checkBox" size="24" color="purple050" />
