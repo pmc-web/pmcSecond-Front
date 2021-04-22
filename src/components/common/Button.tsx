@@ -1,39 +1,56 @@
 import { css } from '@emotion/react';
-import { ReactEventHandler } from 'react';
+import { ReactEventHandler, ReactNode } from 'react';
+import { ButtonSizeType, ButtonType } from 'src/interfaces/emotion';
+import Spinner from './Spinner';
 
 type ButtonProps = {
-  id?: string;
-  title: string;
+  children: ReactNode;
+  size?: keyof ButtonSizeType;
+  type?: keyof ButtonType;
+  htmlType: 'submit' | 'button' | 'reset';
   css?: ReturnType<typeof css>;
   onClick?: ReactEventHandler;
   disabled?: boolean;
+  loading?: boolean;
 };
 
-const Button = ({ id, title, css: btnCss, onClick, disabled = false }: ButtonProps) => (
+const Button = ({
+  children,
+  size = 'normal',
+  type = 'default',
+  htmlType = 'button',
+  css: btnCss,
+  onClick,
+  disabled = false,
+  loading = false,
+}: ButtonProps) => (
   <button
-    type="button"
-    id={id}
-    disabled={disabled}
+    type={htmlType}
+    disabled={disabled || loading}
     onClick={onClick}
     css={(theme) => [
       btnCss,
       css`
+        position: relative;
         cursor: pointer;
-        border: none;
-        padding: 0.3em 1.5em;
-        color: white;
-        background-color: ${theme.color.purple050};
+        ${theme.button[type]}
+        ${theme.buttonSize[size]}
+        ${disabled && theme.button.disabled}
+        opacity: ${loading ? 0.5 : 1};
         &:active {
-          color: white;
-          background-color: ${theme.color.grey030};
+          opacity: 0.3;
         }
-        &:focus {
-          outline: 0;
+        & > .spinner {
+          position: absolute;
+          color: ${theme.button[type].color};
+          top: calc(${theme.buttonSize[size]['min-height']} / 2 - 10px);
+          right: 0.5rem;
         }
       `,
     ]}
   >
-    {title}
+    {children}
+    {loading && <Spinner size="20" />}
   </button>
 );
 

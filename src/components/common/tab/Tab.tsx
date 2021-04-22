@@ -42,6 +42,7 @@ const Tab = ({ children, css: propCss, initialTabIndex, width, onChage }: TapPro
             <li
               css={css`
                 width: 100%;
+                cursor: pointer;
               `}
               key={(child?.props).label}
             >

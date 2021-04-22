@@ -39,11 +39,24 @@ type ButtonProps = {
   color: string;
   'background-color': string;
   border: string;
-  cursor: string;
 };
 
 export type ButtonType = {
   primary: ButtonProps;
+  default: ButtonProps;
+  disabled: ButtonProps;
+};
+
+type ButtonSizeProps = {
+  'min-height': string;
+  'min-width': string;
+  'border-radius'?: string;
+};
+
+export type ButtonSizeType = {
+  large: ButtonSizeProps;
+  normal: ButtonSizeProps;
+  small: ButtonSizeProps;
 };
 
 type FontProps = {
@@ -80,6 +93,7 @@ declare module '@emotion/react' {
   export interface Theme {
     color: ColorType;
     button: ButtonType;
+    buttonSize: ButtonSizeType;
     fontSize: FontSizeType;
     commonStyle: CommonStyleType;
   }

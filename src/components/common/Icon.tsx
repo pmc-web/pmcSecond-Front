@@ -48,12 +48,14 @@ type IconProp = {
   name: IconKeyType;
   size: string;
   color?: keyof ColorType;
+  className?: string;
 };
 
-const Icon = ({ name, size, color }: IconProp) => {
+const Icon = ({ name, size, color, className }: IconProp) => {
   const IconSvg = iconMap[name];
   return (
     <IconSvg
+      className={className}
       css={(theme) => css`
         color: ${color ? theme.color[color] : theme.color.black};
       `}
