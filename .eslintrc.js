@@ -44,5 +44,6 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
+    'react/button-has-type': 'off',
   },
 };
