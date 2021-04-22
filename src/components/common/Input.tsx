@@ -31,7 +31,7 @@ const Input = ({
   const focus = useRef<HTMLLabelElement>(null);
   const onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     if (ev.target.value !== '') {
-      if (valid === 'success') {
+      if (valid !== 'error') {
         if (focus.current) {
           focus.current.style.color = theme.color.purple050;
         }
@@ -46,7 +46,7 @@ const Input = ({
 
   const onFocus = (ev: React.FocusEvent<HTMLInputElement>) => {
     if (ev.target.value !== '') {
-      if (valid === 'success') {
+      if (valid !== 'error') {
         if (focus.current) {
           focus.current.style.color = theme.color.purple050;
         }
@@ -82,14 +82,14 @@ const Input = ({
           css={(themes) => [
             css`
               margin-top: 0.5em;
-              border: 1px solid ${themes.color.grey030};
+              border: 2px solid ${valid !== 'error' ? themes.color.grey030 : themes.color.red040};
               padding: 1.05em;
               border-radius: 6px;
               color: ${themes.color.black};
               ${themes.fontSize.subtitle3};
               &:focus {
                 outline: 0;
-                border: 1px solid ${valid === 'success' ? themes.color.purple050 : 'red'};
+                border: 2px solid ${valid !== 'error' ? themes.color.purple050 : themes.color.red040};
               }
             `,
             inputCss,
@@ -106,11 +106,8 @@ const Input = ({
             transform: translate(50%, -50%);
           `}
         >
-          {valid === 'success' ? (
-            <Icon name="check" size="18" color="green020" />
-          ) : (
-            <Icon name="error" size="18" color="red040" />
-          )}
+          {valid === 'success' ? <Icon name="check" size="18" color="green020" /> : null}
+          {valid === 'error' ? <Icon name="error" size="18" color="red040" /> : null}
         </span>
       </div>
     </div>
