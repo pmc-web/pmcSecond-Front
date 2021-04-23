@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Layout from 'src/components/Layout';
 import { useSampleMutation, useSampleQuery } from 'src/modules/sample';
 
-import SampleChart from 'src/components/SampleChart';
+import Button from 'src/components/common/Button';
 
 const IndexPage = () => {
   const test = useSampleQuery(10);
@@ -17,14 +17,14 @@ const IndexPage = () => {
         console.log(data);
       },
       onError: (error) => {
-        console.log(error.message);
+        console.error((error as Error).message);
       },
     });
   };
   return (
     <>
       <Layout title="Home | Next.js + TypeScript Example">
-        <SampleChart />
+        <Button title="버튼" />
         <h1>Hello Next.js 👋</h1>
         <p>
           <Link href="/about">

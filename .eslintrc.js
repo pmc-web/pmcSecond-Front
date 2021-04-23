@@ -25,11 +25,12 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/jsx-props-no-spreading': 'off',
     'import/extensions': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
-    'prettier/prettier': 'error',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'react/no-unescaped-entities': 'off',
     'import/no-cycle': [0, { ignoreExternal: true }],
     'prefer-const': 'off',
@@ -43,5 +44,6 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
+    'react/button-has-type': 'off',
   },
 };
