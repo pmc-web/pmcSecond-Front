@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { FieldValues, UseFormRegister, ValidationRule } from 'react-hook-form';
 import theme from 'src/assets/theme';
 import Icon from './Icon';
@@ -12,7 +12,7 @@ type InputProps = {
   disabled?: boolean;
   required?: boolean;
   pattern?: ValidationRule<RegExp>;
-  css?: ReturnType<typeof css>;
+  style?: ReturnType<typeof css>;
   label?: string;
   valid?: 'success' | 'error';
 };
@@ -22,7 +22,7 @@ const Input = ({
   valid,
   name,
   label,
-  css: inputCss,
+  style: inputCss,
   defaultValue,
   register,
   required,

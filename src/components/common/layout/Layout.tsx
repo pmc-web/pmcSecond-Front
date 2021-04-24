@@ -59,7 +59,11 @@ const Layout = ({ children, title, leftIcon, rightIcon }: LayoutProps) => {
             onIconClick={handleCloseSideBar}
           />
         }
-        footerComponent={<Button title="판매자 신청" />}
+        footerComponent={
+          <Button htmlType="button" type="primary" size="small">
+            판매자 신청
+          </Button>
+        }
       >
         <SideBarItem label="개인정보수정" onClick={() => null} />
         <SideBarItem label="장바구니" onClick={() => null} />
