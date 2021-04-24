@@ -41,6 +41,7 @@ const SideBar = ({ children, width, visible, headerComponent, footerComponent, o
           animation: ${outRightToLeft} 0.3s ease;
           transform: translateX(-100%);
         }
+        z-index: 1;
       `}
     >
       <div
@@ -65,7 +66,7 @@ const SideBar = ({ children, width, visible, headerComponent, footerComponent, o
           position: relative;
           height: 100vh;
           background-color: white;
-          width: ${width || '70vw'};
+          width: ${width || '80vw'};
           display: flex;
           flex-direction: column;
           justify-content: space-between;

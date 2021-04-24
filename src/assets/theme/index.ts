@@ -22,16 +22,16 @@ const button = {
 const buttonSize = {
   large: {
     'min-height': '3.5rem',
-    'min-width': '23.5rem',
+    width: '100%',
   },
   normal: {
     'min-height': '2.5rem',
-    'min-width': '21rem',
+    width: '80%',
     'border-radius': '0.5rem',
   },
   small: {
-    'min-height': '1.5rem',
-    'min-width': '18.5rem',
+    'min-height': '2rem',
+    width: '70%',
   },
 };
 
