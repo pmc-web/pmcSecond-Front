@@ -12,17 +12,19 @@ type InputProps = {
   disabled?: boolean;
   required?: boolean;
   pattern?: ValidationRule<RegExp>;
-  style?: ReturnType<typeof css>;
+  css?: ReturnType<typeof css>;
   label?: string;
-  valid?: 'success' | 'error';
+  type?: 'text' | 'password';
+  valid?: 'success' | 'error' | 'null';
 };
 
 const Input = ({
   disabled = false,
   valid,
   name,
+  type,
   label,
-  style: inputCss,
+  css: inputCss,
   defaultValue,
   register,
   required,
@@ -79,8 +81,10 @@ const Input = ({
       >
         <input
           id={label}
+          type={type}
           css={(themes) => [
             css`
+              width: 100%;
               margin-top: 0.5em;
               border: 2px solid ${valid !== 'error' ? themes.color.grey030 : themes.color.red040};
               padding: 1.05em;

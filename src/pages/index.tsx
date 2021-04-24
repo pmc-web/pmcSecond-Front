@@ -5,8 +5,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import Layout from 'src/components/Layout';
 import { useSampleMutation, useSampleQuery } from 'src/modules/sample';
 
-import Button from 'src/components/common/Button';
-
 const IndexPage = () => {
   const test = useSampleQuery(10);
   const postTest = useSampleMutation({ mutationKey: 'test' });
@@ -24,7 +22,6 @@ const IndexPage = () => {
   return (
     <>
       <Layout title="Home | Next.js + TypeScript Example">
-        <Button title="버튼" />
         <h1>Hello Next.js 👋</h1>
         <p>
           <Link href="/about">
