@@ -8,7 +8,7 @@ type ButtonProps = {
   size?: keyof ButtonSizeType;
   type?: keyof ButtonType;
   htmlType: 'submit' | 'button' | 'reset';
-  css?: ReturnType<typeof css>;
+  style?: ReturnType<typeof css>;
   onClick?: ReactEventHandler;
   disabled?: boolean;
   loading?: boolean;
@@ -19,7 +19,7 @@ const Button = ({
   size = 'normal',
   type = 'default',
   htmlType = 'button',
-  css: btnCss,
+  style: btnCss,
   onClick,
   disabled = false,
   loading = false,
@@ -29,7 +29,6 @@ const Button = ({
     disabled={disabled || loading}
     onClick={onClick}
     css={(theme) => [
-      btnCss,
       css`
         position: relative;
         cursor: pointer;
@@ -47,6 +46,7 @@ const Button = ({
           right: 0.5rem;
         }
       `,
+      btnCss,
     ]}
   >
     {children}

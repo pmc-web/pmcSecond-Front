@@ -49,7 +49,7 @@ export type ButtonType = {
 
 type ButtonSizeProps = {
   'min-height': string;
-  'min-width': string;
+  width: string;
   'border-radius'?: string;
 };
 

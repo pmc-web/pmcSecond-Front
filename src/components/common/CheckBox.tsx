@@ -50,9 +50,8 @@ const CheckBox = ({ title, id, font = 'body1', onClick, checked }: CheckBoxProps
         <Icon name="checkBox" size="24" color="grey030" />
       )}
     </label>
-    <p
-      role="presentation"
-      onClick={onClick}
+    <label
+      htmlFor={id}
       css={(theme) =>
         css`
           cursor: pointer;
@@ -62,7 +61,7 @@ const CheckBox = ({ title, id, font = 'body1', onClick, checked }: CheckBoxProps
       }
     >
       {title}
-    </p>
+    </label>
   </div>
 );
 
