@@ -15,6 +15,7 @@ const color = {
   magenta060: '#ED00F2',
   magenta070: '#DA00EF',
   magenta080: '#C000EB',
+  grey005: '#FCF8FC',
   grey010: '#FCF8FC',
   grey020: '#FFF8FF',
   grey030: '#EBE5F9',
