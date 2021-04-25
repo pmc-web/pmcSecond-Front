@@ -1,21 +1,36 @@
+import { css } from '@emotion/react';
 import Text from 'src/components/common/Text';
+import { ProductType } from './types';
 
-type ProductItemProps = {
-  name: string;
-  price: string | number;
-  img: string;
-};
-
-const ProductItem = ({ name, price, img }: ProductItemProps) => (
-  <div>
-    <div>
-      <img src={img} alt={name} />
+const ProductItem = ({ name, price, img }: ProductType) => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+    `}
+  >
+    <img
+      src="https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg" // TODO: 추후 교체{img}
+      css={css`
+        width: 100%;
+        height: 14vh;
+        object-fit: cover;
+      `}
+      alt={name}
+    />
+    <div
+      css={css`
+        margin-top: 0.3rem;
+        margin-bottom: 0.12rem;
+      `}
+    >
+      <Text.Title level={4} size="caption1">
+        {name}
+      </Text.Title>
     </div>
     <div>
-      <Text.Title level={4}>{name}</Text.Title>
-    </div>
-    <div>
-      <Text>{price}</Text>
+      <Text size="subtitle3">{price}</Text>
     </div>
   </div>
 );
