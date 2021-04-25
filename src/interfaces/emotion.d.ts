@@ -18,6 +18,7 @@ export type ColorType = {
   magenta060: string;
   magenta070: string;
   magenta080: string;
+  grey005: string;
   grey010: string;
   grey020: string;
   grey030: string;

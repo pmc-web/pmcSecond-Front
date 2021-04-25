@@ -3,7 +3,7 @@ import { rotateClockwise } from 'src/assets/animations/rotate';
 import Icon from './Icon';
 
 type SpinnerProps = {
-  size: string;
+  size?: string;
 };
 
 const Spinner = ({ size = '20' }: SpinnerProps) => (
