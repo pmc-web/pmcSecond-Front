@@ -5,6 +5,8 @@ import HorizontalDivider from 'src/components/common/HorizontalDivider';
 import Container from 'src/components/common/layout/Container';
 import HotList from 'src/components/product/hotList/HotList';
 import CategoryList from 'src/components/category/CategoryList';
+import HotShopList from 'src/components/shop/hotShop/HotShopList';
+import NewShopList from 'src/components/shop/newShop/NewShopList';
 
 const IndexPage = () => {
   console.log('hihi');
@@ -36,10 +38,29 @@ const IndexPage = () => {
       <HorizontalDivider />
       <Container
         style={css`
-          margin-top: 1.25rem;
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
         `}
       >
         <CategoryList />
+      </Container>
+      <HorizontalDivider />
+      <Container
+        style={css`
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
+        `}
+      >
+        <HotShopList />
+      </Container>
+      <HorizontalDivider />
+      <Container
+        style={css`
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
+        `}
+      >
+        <NewShopList />
       </Container>
     </Layout>
   );

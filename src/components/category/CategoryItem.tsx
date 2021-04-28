@@ -7,10 +7,10 @@ type CategoryItemProps = {
 };
 
 const CategoryItem = ({ img, name }: CategoryItemProps) => (
-  <div
+  <li
     css={(theme) => css`
       width: 20vw;
-      margin: 0.2rem;
+      margin: 0 0.2rem;
       ${theme.commonStyle.flexCenter}
     `}
   >
@@ -32,7 +32,7 @@ const CategoryItem = ({ img, name }: CategoryItemProps) => (
         <Text size="caption1">{name}</Text>
       </div>
     </div>
-  </div>
+  </li>
 );
 
 export default CategoryItem;

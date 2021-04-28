@@ -3,7 +3,7 @@ import CategoryItem from './CategoryItem';
 import category from './mock';
 
 const CategoryList = () => (
-  <div
+  <ul
     css={(theme) => css`
       ${theme.commonStyle.flexCenter}
       justify-content: space-between;
@@ -13,7 +13,7 @@ const CategoryList = () => (
     {category.map((v) => (
       <CategoryItem key={v.name} img={v.img} name={v.name} />
     ))}
-  </div>
+  </ul>
 );
 
 export default CategoryList;
