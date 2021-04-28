@@ -9,7 +9,7 @@ type HotListItemProps = HotListItemType;
 const HotListItem = ({ img, shopName, productName, price }: HotListItemProps) => (
   <li
     css={css`
-      width: 30%;
+      //width: 30%;
     `}
   >
     <Link href="/productName">
@@ -18,8 +18,8 @@ const HotListItem = ({ img, shopName, productName, price }: HotListItemProps) =>
           src={img}
           alt={productName}
           css={css`
-            width: 100%;
-            height: 10vh;
+            width: 26vw;
+            height: 26vw;
             object-fit: cover;
           `}
         />

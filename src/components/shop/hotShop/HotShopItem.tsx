@@ -51,7 +51,7 @@ const HotShopItem = ({ ranking, shopName, tags, images }: HotShopItemProps) => (
       {images.slice(0, 2).map((image) => (
         <img
           css={css`
-            height: 9vh;
+            height: 20vw;
             width: 15vw;
           `}
           key={image}

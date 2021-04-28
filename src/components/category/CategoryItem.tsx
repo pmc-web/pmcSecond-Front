@@ -9,7 +9,7 @@ type CategoryItemProps = {
 const CategoryItem = ({ img, name }: CategoryItemProps) => (
   <li
     css={(theme) => css`
-      width: 20vw;
+      width: 18vw;
       margin: 0 0.2rem;
       ${theme.commonStyle.flexCenter}
     `}
@@ -17,8 +17,8 @@ const CategoryItem = ({ img, name }: CategoryItemProps) => (
     <div>
       <img
         css={css`
-          height: 3rem;
-          width: 3rem;
+          height: 12vw;
+          width: 12vw;
           object-fit: cover;
         `}
         src={img}
