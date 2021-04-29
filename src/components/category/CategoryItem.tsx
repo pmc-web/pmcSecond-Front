@@ -7,18 +7,18 @@ type CategoryItemProps = {
 };
 
 const CategoryItem = ({ img, name }: CategoryItemProps) => (
-  <div
+  <li
     css={(theme) => css`
-      width: 20vw;
-      margin: 0.2rem;
+      width: 18vw;
+      margin: 0 0.2rem;
       ${theme.commonStyle.flexCenter}
     `}
   >
     <div>
       <img
         css={css`
-          height: 3rem;
-          width: 3rem;
+          height: 12vw;
+          width: 12vw;
           object-fit: cover;
         `}
         src={img}
@@ -32,7 +32,7 @@ const CategoryItem = ({ img, name }: CategoryItemProps) => (
         <Text size="caption1">{name}</Text>
       </div>
     </div>
-  </div>
+  </li>
 );
 
 export default CategoryItem;

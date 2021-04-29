@@ -16,6 +16,9 @@ const GlobalStyle = () => (
           outline: none;
         }
       }
+      a {
+        text-decoration: none;
+      }
     `}
   />
 );

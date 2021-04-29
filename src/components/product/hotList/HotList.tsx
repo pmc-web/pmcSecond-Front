@@ -29,10 +29,10 @@ const hotList = [
 ];
 
 const HotList = () => {
-  //const { data: hotList, isLoading } = useHotProductList();
+  // const { data: hotList, isLoading } = useHotProductList();
   console.log('hot');
   return (
-    <div
+    <ol
       css={(theme) => css`
         ${theme.commonStyle.flexCenter}
         justify-content: space-between;
@@ -54,7 +54,7 @@ const HotList = () => {
           ))
         /* ) */
       }
-    </div>
+    </ol>
   );
 };
 
