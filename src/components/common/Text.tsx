@@ -8,12 +8,12 @@ type TextProps = {
   color?: keyof ColorType;
 };
 
-const Text = ({ children, size, color }: TextProps) => (
+const Text = ({ children, size, color = 'black' }: TextProps) => (
   <p
     css={(theme) =>
       css`
         ${size && theme.fontSize[size]};
-        color: ${theme.color[color || 'black']};
+        color: ${theme.color[color]};
       `
     }
   >
@@ -25,7 +25,7 @@ type TitleProps = TextProps & {
   level: number;
 };
 
-const Title = ({ children, size, level, color }: TitleProps) => {
+const Title = ({ children, size, level, color = 'black' }: TitleProps) => {
   switch (level) {
     case 1:
       return (
@@ -33,7 +33,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >
@@ -46,7 +46,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >
@@ -59,7 +59,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >
@@ -72,7 +72,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >
@@ -85,7 +85,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >
@@ -98,7 +98,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >
@@ -111,7 +111,7 @@ const Title = ({ children, size, level, color }: TitleProps) => {
           css={(theme) =>
             css`
               ${size && theme.fontSize[size]};
-              color: ${theme.color[color || 'black']};
+              color: ${theme.color[color]};
             `
           }
         >

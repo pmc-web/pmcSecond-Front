@@ -1,51 +1,74 @@
-import Link from 'next/link';
 import { css } from '@emotion/react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Layout from 'src/components/Layout';
-import { useSampleMutation, useSampleQuery } from 'src/modules/sample';
 
-import Button from 'src/components/common/Button';
+import Layout from 'src/components/common/layout/Layout';
+import HorizontalDivider from 'src/components/common/HorizontalDivider';
+import Container from 'src/components/common/layout/Container';
+import HotList from 'src/components/product/hotList/HotList';
+import CategoryList from 'src/components/category/CategoryList';
+import HotShopList from 'src/components/shop/hotShop/HotShopList';
+import NewShopList from 'src/components/shop/newShop/NewShopList';
+import ContainerHeader from 'src/components/home/ContainerHeader';
 
 const IndexPage = () => {
-  const test = useSampleQuery(10);
-  const postTest = useSampleMutation({ mutationKey: 'test' });
-
-  const handleClick = () => {
-    postTest.mutate(10, {
-      onSuccess: ({ data }) => {
-        console.log(data);
-      },
-      onError: (error) => {
-        console.error((error as Error).message);
-      },
-    });
-  };
+  console.log('hihi');
   return (
-    <>
-      <Layout title="Home | Next.js + TypeScript Example">
-        <Button title="버튼" />
-        <h1>Hello Next.js 👋</h1>
-        <p>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-          <div css={testStyle}>
-            <p>자동배포될라나...안될라나 (배포완료👍)</p>
-          </div>
-          <button type="button" onClick={handleClick}>
-            test
-          </button>
-        </p>
-      </Layout>
-    </>
+    <Layout leftIcon="menu" rightIcon={['search', 'alarm']}>
+      <Container
+        style={css`
+          margin-top: 2rem;
+          margin-bottom: 2.5rem;
+        `}
+      >
+        <div
+          css={css`
+            height: 5rem;
+            width: 100%;
+            background-color: green;
+          `}
+        >
+          banner
+        </div>
+      </Container>
+      <Container
+        style={css`
+          margin-bottom: 1.8rem;
+        `}
+      >
+        <ContainerHeader href="test" title="오늘의 인기 상품 🔥" />
+        <HotList />
+      </Container>
+      <HorizontalDivider />
+      <Container
+        style={css`
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
+        `}
+      >
+        <ContainerHeader title="종류별 마켓 💕" />
+        <CategoryList />
+      </Container>
+      <HorizontalDivider />
+      <Container
+        style={css`
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
+        `}
+      >
+        <ContainerHeader title="요즘 뜨는 마켓 🔭" href="/test" />
+        <HotShopList />
+      </Container>
+      <HorizontalDivider />
+      <Container
+        style={css`
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
+        `}
+      >
+        <ContainerHeader title="새로 등록된 마켓 🎉" href="/test" />
+        <NewShopList />
+      </Container>
+    </Layout>
   );
 };
-
-const testStyle = css`
-  &p {
-    font-size: 50px;
-  }
-`;
 
 export default IndexPage;

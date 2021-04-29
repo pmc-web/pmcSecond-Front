@@ -1,5 +1,7 @@
 import { useRouter } from 'next/dist/client/router';
+import Head from 'next/head';
 import { ReactNode, useState } from 'react';
+
 import Button from '../Button';
 import SideBar from './SideBar';
 import SideBarItem from './SideBarItem';
@@ -46,6 +48,11 @@ const Layout = ({ children, title, leftIcon, rightIcon }: LayoutProps) => {
   };
   return (
     <>
+      <Head>
+        <title>마켓유니버스{title && ` | ${title}`}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <TopBar title={title} leftIcon={leftIcon} rightIcon={rightIcon} onClick={onClickHandler} />
       <SideBar
         visible={showSideBar}

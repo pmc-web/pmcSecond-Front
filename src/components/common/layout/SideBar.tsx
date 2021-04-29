@@ -78,8 +78,8 @@ const SideBar = ({ children, width, visible, headerComponent, footerComponent, o
         </ul>
         <div
           css={(theme) => css`
-            ${theme.commonStyle.flexCenter}
-            margin-bottom: 1.25rem;
+            ${theme.commonStyle.flexCenter};
+            margin-bottom: 3rem;
           `}
         >
           {footerComponent}

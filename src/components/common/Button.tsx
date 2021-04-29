@@ -41,8 +41,8 @@ const Button = ({
         }
         & > .spinner {
           position: absolute;
-          color: ${theme.button[type].color};
-          top: calc(${theme.buttonSize[size]['min-height']} / 2 - 10px);
+          ${theme.button[type]}
+          top: calc(50% - 10px);
           right: 0.5rem;
         }
       `,

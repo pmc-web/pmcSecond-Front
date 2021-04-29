@@ -1,4 +1,6 @@
-import '@emotion/react';
+import { css } from '@emotion/react';
+
+type CssReturnType = ReturnType<typeof css>;
 
 export type ColorType = {
   white: string;
@@ -18,6 +20,7 @@ export type ColorType = {
   magenta060: string;
   magenta070: string;
   magenta080: string;
+  grey005: string;
   grey010: string;
   grey020: string;
   grey030: string;
@@ -35,58 +38,34 @@ export type ColorType = {
   red040: string;
 };
 
-type ButtonProps = {
-  color: string;
-  'background-color': string;
-  border: string;
-};
-
 export type ButtonType = {
-  primary: ButtonProps;
-  default: ButtonProps;
-  disabled: ButtonProps;
-};
-
-type ButtonSizeProps = {
-  'min-height': string;
-  width: string;
-  'border-radius'?: string;
+  primary: CssReturnType;
+  default: CssReturnType;
+  disabled: CssReturnType;
+  ghost: CssReturnType;
 };
 
 export type ButtonSizeType = {
-  large: ButtonSizeProps;
-  normal: ButtonSizeProps;
-  small: ButtonSizeProps;
-};
-
-type FontProps = {
-  'font-size': string;
-  'font-weight'?: string;
-  'line-height': string;
+  large: CssReturnType;
+  normal: CssReturnType;
+  small: CssReturnType;
 };
 
 export type FontSizeType = {
-  h1: FontProps;
-  subtitle1: FontProps;
-  subtitle2: FontProps;
-  subtitle3: FontProps;
-  subtitle4: FontProps;
-  body1: FontProps;
-  body2: FontProps;
-  caption1: FontProps;
-  caption2: FontProps;
-};
-
-type CommonStyleProps = {
-  display?: string;
-  'flex-direction'?: string;
-  'justify-content'?: string;
-  'align-items'?: string;
+  h1: CssReturnType;
+  subtitle1: CssReturnType;
+  subtitle2: CssReturnType;
+  subtitle3: CssReturnType;
+  subtitle4: CssReturnType;
+  body1: CssReturnType;
+  body2: CssReturnType;
+  caption1: CssReturnType;
+  caption2: CssReturnType;
 };
 
 type CommonStyleType = {
-  flexCenter: CommonStyleProps;
-  flexColomn: CommonStyleProps;
+  flexCenter: CssReturnType;
+  flexColomn: CssReturnType;
 };
 
 declare module '@emotion/react' {
