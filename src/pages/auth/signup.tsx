@@ -4,7 +4,7 @@ import { DeepMap, FieldError, useForm } from 'react-hook-form';
 import Input from 'src/components/common/Input';
 import TopBar from 'src/components/common/layout/TopBar';
 import { useRouter } from 'next/router';
-import { useSignUp } from 'src/modules/auth';
+import { useSignUpMutation } from 'src/modules/auth';
 
 type FormData = {
   email?: string;
@@ -20,12 +20,13 @@ const SignUp = () => {
     setValue,
     formState: { errors },
   } = useForm<FormData>({ mode: 'onChange' });
-  const mutation = useSignUp();
+  const mutation = useSignUpMutation();
 
   const onSubmit = async (data: FormData) => {
     if (data.email && data.pw) {
       const postData = { email: data.email, password: data.pw };
       const result = mutation.mutate(postData);
+      return result;
     } else {
       window.alert('빈칸이 존재합니다.');
     }

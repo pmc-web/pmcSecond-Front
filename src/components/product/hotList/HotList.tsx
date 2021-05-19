@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
-import Spinner from 'src/components/common/Spinner';
-import { useHotProductList } from 'src/modules/product';
+// import Spinner from 'src/components/common/Spinner';
+// import { useHotProductList } from 'src/modules/product';
 import HotListItem from './HotListItem';
 
 const hotList = [

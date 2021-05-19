@@ -1,11 +1,12 @@
 import { css } from '@emotion/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from 'src/components/common/Button';
 import HotShopItem from './HotShopItem';
 import hotShops from './mock';
 
 const HotShopList = () => {
-  const [topThree, setTopThree] = useState(hotShops.slice(0, 3));
+  const [topThree, _] = useState(hotShops.slice(0, 3));
+
   /* useEffect(() => {
     setTopThree(hotShops.slice(0, 3));
   }, [hotShops]); */
