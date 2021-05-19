@@ -1,12 +1,21 @@
 import { css } from '@emotion/react';
-import Link from 'next/link';
 import React, { useState } from 'react';
 import Button from 'src/components/common/Button';
 import CheckBox from 'src/components/common/CheckBox';
 import Text from 'src/components/common/Text';
 import { useRouter } from 'next/router';
 import TopBar from 'src/components/common/layout/TopBar';
-
+import Modal from 'react-modal';
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 type CheckType = {
   all: boolean;
   Term1: boolean;
@@ -14,6 +23,7 @@ type CheckType = {
   Term3: boolean;
 };
 const Terms = () => {
+  const [modalIsOpen, setIsOpen] = useState(true);
   const router = useRouter();
   const [checked, setChecked] = useState<CheckType>({
     all: false,
@@ -35,12 +45,19 @@ const Terms = () => {
       }
     }
   };
+  const onBack = (name: string) => () => {
+    if (name === 'leftArrow') {
+      router.push('/auth');
+    }
+  };
+
   const onRouter = () => {
     router.push('/auth/signup');
   };
+
   return (
     <>
-      <TopBar title="약관동의" />
+      <TopBar onClick={onBack} leftIcon="leftArrow" title="약관동의" />
       <section
         css={(themes) => css`
           ${themes.commonStyle.flexColomn};
