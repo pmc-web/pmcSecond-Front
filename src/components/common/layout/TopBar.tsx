@@ -21,7 +21,6 @@ const TopBar = ({ leftIcon, title, rightIcon, onClick }: Props) => (
       margin: 0px 1rem;
       > span {
         ${theme.commonStyle.flexCenter}
-        width: 20%;
         :first-of-type {
           justify-content: flex-start;
         }
