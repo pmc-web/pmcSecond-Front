@@ -6,7 +6,7 @@ import TopBar from 'src/components/common/layout/TopBar';
 import { useRouter } from 'next/router';
 import Logo from 'src/components/common/logo/Logo';
 import Link from 'next/link';
-import { useLoginMutation, useUserDataQuery } from 'src/modules/auth';
+import { useLoginMutation } from 'src/modules/auth';
 import { useQueryClient } from 'react-query';
 
 type FormData = {
@@ -25,7 +25,6 @@ const EmailLogin = () => {
     setValue,
     formState: { errors },
   } = useForm<FormData>({ mode: 'onChange' });
-  const { data } = useUserDataQuery();
 
   const mutation = useLoginMutation();
 

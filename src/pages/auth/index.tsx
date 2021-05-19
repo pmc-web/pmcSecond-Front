@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import Button from 'src/components/common/Button';
 import Logo from 'src/components/common/logo/Logo';
 import Text from 'src/components/common/Text';
-import KakaoLogin from 'react-kakao-login';
+
 import Icon from 'src/components/common/Icon';
 import { useRouter } from 'next/router';
 
