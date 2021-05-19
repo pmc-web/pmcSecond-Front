@@ -1,4 +1,3 @@
-import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import { ReactNode, useState } from 'react';
 
@@ -16,36 +15,11 @@ type LayoutProps = {
 };
 
 const Layout = ({ children, title, leftIcon, rightIcon }: LayoutProps) => {
-  const router = useRouter();
-
   const [showSideBar, setShowSideBar] = useState(false);
-  const handleCloseSideBar = () => {
-    setShowSideBar(false);
+  const toggleSideBar = () => {
+    setShowSideBar(!showSideBar);
   };
-  const onClickHandler = (iconName: RightIconType | LeftIconType) => () => {
-    switch (iconName) {
-      case 'leftArrow':
-        router.back();
-        break;
-      case 'menu':
-        setShowSideBar(true);
-        break;
-      case 'wishOn':
-        // TODO: 추후 추가
-        break;
-      case 'wishOff':
-        // TODO: 추후 추가
-        break;
-      case 'search':
-        // TODO: 추후 추가 (search 화면으로 push or modal)
-        break;
-      case 'alarm':
-        // TODO: 추후 추가
-        break;
-      default:
-        break;
-    }
-  };
+
   return (
     <>
       <Head>
@@ -53,17 +27,17 @@ const Layout = ({ children, title, leftIcon, rightIcon }: LayoutProps) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <TopBar title={title} leftIcon={leftIcon} rightIcon={rightIcon} onClick={onClickHandler} />
+      <TopBar title={title} leftIcon={leftIcon} rightIcon={rightIcon} handleSideBar={toggleSideBar} />
       <SideBar
         visible={showSideBar}
-        onClickBackground={handleCloseSideBar}
+        onClickBackground={toggleSideBar}
         headerComponent={
           <SideBarItem
             label="안녕하세요, 회원님"
             textSize="subtitle2"
             rightIcon="close"
             onClick={() => null}
-            onIconClick={handleCloseSideBar}
+            onIconClick={toggleSideBar}
           />
         }
         footerComponent={

@@ -9,7 +9,7 @@ const GlobalStyle = () => (
         box-sizing: border-box;
       }
       button {
-        background-color: #fff;
+        background-color: transparent;
         border: none;
         padding: 0;
         :focus {
