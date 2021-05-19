@@ -13,7 +13,7 @@ type InputProps = {
   disabled?: boolean;
   required?: boolean;
   pattern?: ValidationRule<RegExp>;
-  css?: ReturnType<typeof css>;
+  style?: ReturnType<typeof css>;
   label?: string;
   type?: 'text' | 'password';
   valid?: 'success' | 'error' | 'close' | 'null';
@@ -25,7 +25,7 @@ const Input = ({
   name,
   type,
   label,
-  css: inputCss,
+  style: inputCss,
   defaultValue,
   register,
   required,
