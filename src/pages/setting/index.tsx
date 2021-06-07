@@ -4,9 +4,11 @@ import SideBarItem from 'src/components/common/layout/SideBarItem';
 import { useCallback } from 'react';
 
 const SettingIndex = () => {
+  // 회원정보 이동
   const onAuthInfo = useCallback(() => {
     console.log('회원정보');
   }, []);
+  // 주소관리 이동
   const onAddressAdmin = useCallback(() => {
     console.log('주소관리');
   }, []);
