@@ -10,8 +10,12 @@ const HeadCard = ({ title = '' }: HeadCardProps) => (
   <div css={wrapperCss}>
     <TopBar title={title} leftIcon="leftArrow" backgroundColor="grey080" />
     <SellerInfoBox />
-    <SellingInfoBox />
-    <NoticeBox />
+    {!title && (
+      <>
+        <SellingInfoBox />
+        <NoticeBox />
+      </>
+    )}
   </div>
 );
 
