@@ -24,7 +24,7 @@ const TopBar = ({ leftIcon, title, rightIcon, backgroundColor = 'white', handleS
           </button>
         )}
       </span>
-      <span>
+      <span css={titleCss}>
         <Text.Title level={1} size="subtitle2" color={backgroundColor === 'white' ? 'black' : 'white'}>
           {title}
         </Text.Title>
@@ -66,4 +66,8 @@ const headerCss = (theme: Theme, backgroundColor: 'white' | 'grey080') => css`
       justify-content: space-between;
     }
   }
+`;
+
+const titleCss = css`
+  width: 40% !important;
 `;
