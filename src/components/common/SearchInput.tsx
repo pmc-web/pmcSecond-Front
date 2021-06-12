@@ -4,7 +4,7 @@ import Icon from './Icon';
 // doc사이트 https://react-hook-form.com/get-started
 type SearchInputProps = {
   disabled?: boolean;
-  css?: ReturnType<typeof css>;
+  style?: ReturnType<typeof css>;
   label?: string;
   placeholder?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -14,7 +14,7 @@ type SearchInputProps = {
 const SearchInput = ({
   disabled = false,
   label,
-  css: SearchInputCss,
+  style: SearchInputCss,
   onChange,
   value,
   placeholder,
@@ -22,6 +22,7 @@ const SearchInput = ({
   <div
     css={[
       css`
+        width: 100%;
         display: inline;
         position: relative;
       `,
@@ -41,6 +42,7 @@ const SearchInput = ({
       id={label}
       placeholder={placeholder}
       onChange={onChange}
+      value={value}
       css={(themes) => [
         css`
           width: 100%;
