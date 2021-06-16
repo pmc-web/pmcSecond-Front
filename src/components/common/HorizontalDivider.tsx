@@ -1,11 +1,18 @@
 import { css } from '@emotion/react';
 
-const HorizontalDivider = () => (
+type HorizontalProps = {
+  style?: ReturnType<typeof css>;
+};
+
+const HorizontalDivider = ({ style: HorizontalCss }: HorizontalProps) => (
   <div
-    css={(theme) => css`
-      width: 100%;
-      border-bottom: 0.625rem solid ${theme.color.grey005};
-    `}
+    css={(theme) => [
+      css`
+        width: 100%;
+        border-bottom: 0.625rem solid ${theme.color.grey005};
+      `,
+      HorizontalCss,
+    ]}
   />
 );
 

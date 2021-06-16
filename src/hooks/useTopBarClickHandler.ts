@@ -15,6 +15,9 @@ const useTopBarClickHandler = (handleShowSideBar?: () => void) => {
             handleShowSideBar();
           }
           break;
+        case 'search':
+          router.push('/search');
+          break;
         case 'wishOn':
           // TODO: 추후 추가
           break;
