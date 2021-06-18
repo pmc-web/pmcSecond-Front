@@ -10,11 +10,11 @@ type TopBarProps = {
   rightIcon?: Array<RightIconType>;
   title?: string;
   backgroundColor?: 'white' | 'grey080';
-  handleSideBar?: () => void;
+  onLeftIconClick?: () => void;
 };
 
-const TopBar = ({ leftIcon, title, rightIcon, backgroundColor = 'white', handleSideBar }: TopBarProps) => {
-  const onClick = useTopBarClickHandler(handleSideBar);
+const TopBar = ({ leftIcon, title, rightIcon, backgroundColor = 'white', onLeftIconClick }: TopBarProps) => {
+  const onClick = useTopBarClickHandler(onLeftIconClick);
   return (
     <header css={(theme) => headerCss(theme, backgroundColor)}>
       <span>
