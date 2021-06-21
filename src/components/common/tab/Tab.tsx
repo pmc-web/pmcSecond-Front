@@ -25,8 +25,7 @@ const Tab = ({ children, css: propCss, initialTabIndex, width, onChage }: TapPro
         css`
           width: ${width ?? 'inherit'};
           .tabItem {
-            ${theme.commonStyle.flexCenter}
-            margin-top: 1rem;
+            ${theme.commonStyle.flexCenter}/* margin-top: 1rem; */
           }
         `,
         propCss,
