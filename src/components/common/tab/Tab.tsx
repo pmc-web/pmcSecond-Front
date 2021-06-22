@@ -19,14 +19,15 @@ const Tab = ({ children, css: propCss, initialTabIndex, width, onChage }: TapPro
       onChage(event);
     }
   };
+
   return (
     <div
       css={(theme) => [
         css`
           width: ${width ?? 'inherit'};
-          .tabItem {
-            ${theme.commonStyle.flexCenter}/* margin-top: 1rem; */
-          }
+          /* .tabItem {
+            ${theme.commonStyle.flexCenter}
+          } */
         `,
         propCss,
       ]}
