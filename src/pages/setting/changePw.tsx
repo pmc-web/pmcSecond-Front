@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 import { DeepMap, FieldError, useForm } from 'react-hook-form';
 import TopBar from 'src/components/common/layout/TopBar';
 import Input from 'src/components/common/Input';
@@ -32,16 +32,10 @@ const ChangePw = () => {
   };
 
   return (
-    <>
+    <div css={sectionCss}>
       <TopBar title="비밀번호 수정" leftIcon="leftArrow" />
-      <section
-        css={(themes) => css`
-          ${themes.commonStyle.flexColomn};
-          padding: 30px 1.2em 0 1.2em;
-          height: 100%;
-          justify-content: space-between;
-        `}
-      >
+
+      <section>
         <Input
           required
           label="새로운 비밀번호"
@@ -51,9 +45,6 @@ const ChangePw = () => {
           setValue={setValue}
           valid={!getValues('pw') ? 'null' : onValid('pw')}
           pattern={/^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/}
-          style={css`
-            margin-bottom: 1.875em;
-          `}
         />
         <Input
           required
@@ -66,11 +57,8 @@ const ChangePw = () => {
           pattern={new RegExp(String(getValues('pw')))}
         />
       </section>
+
       <Button
-        style={css`
-          position: fixed;
-          bottom: 0;
-        `}
         htmlType="submit"
         size="large"
         type="primary"
@@ -78,8 +66,25 @@ const ChangePw = () => {
       >
         완료
       </Button>
-    </>
+    </div>
   );
 };
+
+const sectionCss = (theme: Theme) => css`
+  section {
+    ${theme.commonStyle.flexColomn};
+    padding: 30px 1.2em 0 1.2em;
+    height: 100%;
+    justify-content: space-between;
+
+    input {
+      margin-bottom: 1.875em;
+    }
+  }
+  button {
+    position: fixed;
+    bottom: 0;
+  }
+`;
 
 export default ChangePw;

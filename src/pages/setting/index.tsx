@@ -2,16 +2,18 @@ import { css } from '@emotion/react';
 import TopBar from 'src/components/common/layout/TopBar';
 import SideBarItem from 'src/components/common/layout/SideBarItem';
 import { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 const SettingIndex = () => {
+  const router = useRouter();
   // 회원정보 이동
-  const onAuthInfo = useCallback(() => {
-    console.log('회원정보');
-  }, []);
+  const onChangeInfo = useCallback(() => {
+    router.push('/setting/changeInfo');
+  }, [router]);
   // 주소관리 이동
   const onAddressAdmin = useCallback(() => {
-    console.log('주소관리');
-  }, []);
+    router.push('/setting/addressAdmin');
+  }, [router]);
   return (
     <section>
       {/* 헤더 */}
@@ -69,7 +71,7 @@ const SettingIndex = () => {
         `}
       />
       {/* 회원정보 수정 & 주소관리 */}
-      <SideBarItem label="회원정보" onClick={onAuthInfo} rightIcon="rightArrow" />
+      <SideBarItem label="회원정보" onClick={onChangeInfo} rightIcon="rightArrow" />
       <SideBarItem label="주소관리" onClick={onAddressAdmin} rightIcon="rightArrow" />
     </section>
   );

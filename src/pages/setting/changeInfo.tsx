@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 import { useRouter } from 'next/router';
 import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import Button from 'src/components/common/Button';
@@ -36,39 +36,19 @@ const ChangeInfo = () => {
   return (
     <>
       <TopBar title="회원정보 수정" leftIcon="leftArrow" />
-      <section
-        css={(themes) => css`
-          padding: 30px 1.2em 0 1.2em;
-          height: 100%;
-          ${themes.commonStyle.flexColomn};
-          justify-content: space-between;
-        `}
-      >
+      <section css={sectionCss}>
         <Input
           disabled
           label="이메일"
           name="email"
           setValue={setValue}
           register={register}
-          style={css`
-            margin-bottom: 1.875em;
-          `}
+          style={inputCss()}
+          placeholder="info@marketuniverse.co.kr"
         />
         {/* 닉네임 */}
-        <div
-          css={css`
-            display: flex;
-            /* justify-content: space-between; */
-            align-items: flex-end;
-            margin-bottom: 1.875em;
-            width: 100%;
-          `}
-        >
-          <div
-            css={css`
-              flex: 1;
-            `}
-          >
+        <div className="btnInput">
+          <div>
             <Input
               required
               label="닉네임"
@@ -81,13 +61,6 @@ const ChangeInfo = () => {
           <Button
             htmlType="button"
             type="primary"
-            style={css`
-              border-radius: 5px;
-              min-height: 3.3rem;
-              margin-left: 1rem;
-              width: 97px;
-            `}
-            // disabled={(!checked.Term1 || !checked.Term2) && true}
             // onClick={onRouter}
           >
             중복학인
@@ -100,26 +73,12 @@ const ChangeInfo = () => {
           setValue={setValue}
           register={register}
           placeholder="-를 제외하고 숫자만 입력해주세요."
-          style={css`
-            margin-bottom: 1.875em;
-          `}
+          style={inputCss()}
         />
 
-        {/* 닉네임 */}
-        <div
-          css={css`
-            display: flex;
-            /* justify-content: space-between; */
-            align-items: flex-end;
-            margin-bottom: 1.875em;
-            width: 100%;
-          `}
-        >
-          <div
-            css={css`
-              flex: 3;
-            `}
-          >
+        {/* 비밀번호 */}
+        <div className="btnInput">
+          <div>
             <Input
               required
               label="비밀번호"
@@ -136,12 +95,6 @@ const ChangeInfo = () => {
             htmlType="button"
             type="primary"
             onClick={onMoveToChangePw}
-            style={css`
-              border-radius: 5px;
-              min-height: 3.3rem;
-              margin-left: 1rem;
-              flex: 1;
-            `}
             disabled={!getValues('pw')}
             // onClick={onRouter}
           >
@@ -155,11 +108,7 @@ const ChangeInfo = () => {
         htmlType="button"
         size="large"
         type="primary"
-        style={css`
-          position: fixed;
-          bottom: 0;
-        `}
-        // disabled={(!checked.Term1 || !checked.Term2) && true}
+        style={successBtnCss()}
         // onClick={onRouter}
       >
         완료
@@ -167,5 +116,38 @@ const ChangeInfo = () => {
     </>
   );
 };
+
+const sectionCss = (theme: Theme) => css`
+  padding: 30px 1.2em 0 1.2em;
+  height: 100%;
+  ${theme.commonStyle.flexColomn};
+  justify-content: space-between;
+
+  .btnInput {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-end;
+    margin-bottom: 1.875em;
+    width: 100%;
+    > div {
+      flex: 1;
+    }
+    > button {
+      border-radius: 5px;
+      min-height: 3.3rem;
+      margin-left: 1rem;
+      width: 97px;
+    }
+  }
+`;
+
+const inputCss = () => css`
+  margin-bottom: 1.875em;
+`;
+
+const successBtnCss = () => css`
+  position: fixed;
+  bottom: 0;
+`;
 
 export default ChangeInfo;

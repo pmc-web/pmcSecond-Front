@@ -1,29 +1,32 @@
 import TopBar from 'src/components/common/layout/TopBar';
 import AddressCardList from 'src/components/setting/address/AddressCardList';
 import Button from 'src/components/common/Button';
-import { css, Theme } from '@emotion/react';
+import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
 
-const AddressAdmin = () => (
-  <>
-    <TopBar title="주소지 관리" leftIcon="leftArrow" />
+const AddressAdmin = () => {
+  const router = useRouter();
 
-    <AddressCardList />
-    {/* 배송지 추가하기 */}
-    <div css={buttonCss}>
-      <Button
-        htmlType="button"
-        size="normal"
-        type="ghost"
-        // disabled={(!checked.Term1 || !checked.Term2) && true}
-        // onClick={onRouter}
-      >
-        배송지 추가하기
-      </Button>
-    </div>
-  </>
-);
+  const onMoveAddressAdd = () => {
+    router.push('/setting/addressAdd');
+  };
+  return (
+    <>
+      <TopBar title="주소지 관리" leftIcon="leftArrow" />
+      <section>
+        <AddressCardList />
+        {/* 배송지 추가하기 */}
+        <div css={buttonCss}>
+          <Button htmlType="button" size="normal" type="ghost" onClick={onMoveAddressAdd}>
+            배송지 추가하기
+          </Button>
+        </div>
+      </section>
+    </>
+  );
+};
 
-const buttonCss = (theme: Theme) => css`
+const buttonCss = () => css`
   margin: 1.825em 1.2em;
   > button {
     width: 100%;
