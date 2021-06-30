@@ -56,7 +56,7 @@ const headerCss = (theme: Theme, backgroundColor: 'white' | 'grey080') => css`
   background-color: ${theme.color[backgroundColor]};
   > span {
     ${theme.commonStyle.flexCenter}
-    width: 20%;
+    width: 30%;
     :first-of-type {
       justify-content: flex-start;
     }
