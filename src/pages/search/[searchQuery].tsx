@@ -2,36 +2,28 @@ import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import theme from 'src/assets/theme';
-import HorizontalDivider from 'src/components/common/HorizontalDivider';
 import Icon from 'src/components/common/Icon';
-import PopularSearch from 'src/components/search/PopularSearch';
-import RecentSearch from 'src/components/search/RecentSearch';
+import Tab from 'src/components/common/tab/Tab';
+import SearchProducts from 'src/components/search/productResult/SearchProducts';
+import SearchShops from 'src/components/search/shopResult/SearchShops';
 import SearchInput from 'src/components/common/SearchInput';
 
-const SearchIndex = () => {
+const SearchResult = () => {
   const router = useRouter();
-
   const [value, setValue] = useState('');
+
   const onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = ev.target;
     setValue(inputValue);
   };
+
   const onGoBack = () => router.back();
 
   const onKeydown = (ev: React.KeyboardEvent) => {
-    if (ev.keyCode === 13) {
-      return router.push({
-        pathname: '/search/[searchQuery]',
-        query: { searchQuery: value },
-      });
-    }
+    return;
   };
 
-  const onClickIcon = () =>
-    router.push({
-      pathname: '/search/[searchQuery]',
-      query: { searchQuery: value },
-    });
+  console.log(router);
 
   return (
     <section css={wrapperCss}>
@@ -44,7 +36,6 @@ const SearchIndex = () => {
             style={css`
               height: 2rem;
             `}
-            onClickIcon={onClickIcon}
             onChange={onChange}
             onKeydown={onKeydown}
             value={value}
@@ -52,21 +43,19 @@ const SearchIndex = () => {
           />
         </div>
       </div>
-      <RecentSearch />
-      <div css={dividerBox}>
-        <HorizontalDivider
-          style={css`
-            width: 90%;
-            border-width: 1px;
-          `}
-        />
-      </div>
-      <PopularSearch />
+      <Tab>
+        <Tab.TabItem label="상품">
+          <SearchProducts />
+        </Tab.TabItem>
+        <Tab.TabItem label="쇼핑몰">
+          <SearchShops />
+        </Tab.TabItem>
+      </Tab>
     </section>
   );
 };
 
-export default SearchIndex;
+export default SearchResult;
 
 const wrapperCss = css`
   width: 100%;
@@ -82,10 +71,4 @@ const searchFormCss = css`
   padding: 1rem;
   width: 100%;
   height: 3.1rem;
-`;
-
-const dividerBox = css`
-  margin: 1rem 0;
-  width: 100%;
-  ${theme.commonStyle.flexCenter};
 `;
