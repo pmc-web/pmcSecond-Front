@@ -5,7 +5,7 @@ import moment from 'moment';
 
 const OrderList = () => (
   <>
-    <TopBar title="개인정보 수정" leftIcon="leftArrow" />
+    <TopBar title="주문내역" leftIcon="leftArrow" />
     <p
       css={(theme) => css`
         ${theme.fontSize.body1};
