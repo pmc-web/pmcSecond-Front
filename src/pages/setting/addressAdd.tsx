@@ -102,10 +102,10 @@ const AddressAdd = () => {
       <div className="checkBox">
         <CheckBox
           title="이 배송지를 기본 배송지로 등록합니다."
-          checked={checked}
           id="Term1"
-          onClick={onChecked}
           font="body2"
+          checked={checked}
+          onClick={onChecked}
         />
       </div>
       {/* 완료 버튼 */}

@@ -1,14 +1,15 @@
 import { css, Theme } from '@emotion/react';
-import Star from 'src/components/common/Star';
+import Rating from 'src/components/common/Rating';
 import Button from 'src/components/common/Button';
 
 type MyReviewItemProps = {
   productName: string;
   productOption: string;
-  commnet: string;
+  comment: string;
+  rating: number;
 };
 
-const MyReviewItem = ({ productName, productOption, commnet }: MyReviewItemProps) => (
+const MyReviewItem = ({ productName, productOption, comment, rating }: MyReviewItemProps) => (
   <div css={containerCss}>
     <div className="titleWrap">
       <div className="imageWrap" />
@@ -17,12 +18,8 @@ const MyReviewItem = ({ productName, productOption, commnet }: MyReviewItemProps
         <p>{productOption}</p>
       </div>
     </div>
-    <Star
-      style={css`
-        margin-top: 20px;
-      `}
-    />
-    <p className="reviewText">{commnet}</p>
+    <Rating rating={rating} />
+    <p className="reviewText">{comment}</p>
     <div className="buttonWrap">
       <Button htmlType="button" type="ghost">
         수정
@@ -58,6 +55,10 @@ const containerCss = (theme: Theme) => css`
         color: ${theme.color.grey050};
       }
     }
+  }
+
+  > ul {
+    margin-top: 20px;
   }
 
   .reviewText {

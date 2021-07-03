@@ -1,7 +1,7 @@
 import { css, Theme } from '@emotion/react';
 import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import TopBar from 'src/components/common/layout/TopBar';
-import Star from 'src/components/common/Star';
+import Rating from 'src/components/common/Rating';
 import Input from 'src/components/common/Input';
 import Button from 'src/components/common/Button';
 
@@ -32,7 +32,7 @@ const ReviewAdd = () => {
         <div className="starWrap">
           <p className="plusline">상품은 어떠셨나요?</p>
           <p className="plusline">상품에 대한 별점을 매겨주세요</p>
-          <Star style={starCss()} />
+          <Rating rating={5} fix />
         </div>
         <div className="selectImageWrap">
           <div>
@@ -92,6 +92,9 @@ const sectionCss = (theme: Theme) => css`
     > p:nth-child(2) {
       ${theme.fontSize.body2}
       color: ${theme.color.grey050};
+    }
+    > ul {
+      margin-top: 12px;
     }
   }
 

@@ -5,13 +5,15 @@ const data = [
     id: 1,
     productName: '상품명',
     productOption: '상품 선택 옵션',
-    commnet: '실물이 더 귀여워요!! 다른 컬러도 사고싶어요!',
+    comment: '실물이 더 귀여워요!! 다른 컬러도 사고싶어요!',
+    rating: 4,
   },
   {
     id: 2,
     productName: '상품명',
     productOption: '상품 선택 옵션',
-    Comment: '실물이 더 귀여워요!! 다른 컬러도 사고싶어요!',
+    comment: '실물이 더 귀여워요!! 다른 컬러도 사고싶어요!',
+    rating: 3,
   },
 ];
 
@@ -22,7 +24,8 @@ const MyReviewList = () => (
         key={item.id}
         productName={item.productName}
         productOption={item.productOption}
-        commnet={item.commnet}
+        comment={item.comment}
+        rating={item.rating}
       />
     ))}
   </ul>
