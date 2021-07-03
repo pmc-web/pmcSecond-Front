@@ -17,6 +17,7 @@ type InputProps = {
   label?: string;
   type?: 'text' | 'password';
   valid?: 'success' | 'error' | 'close' | 'null';
+  placeholder?: string;
 };
 
 const Input = ({
@@ -31,6 +32,7 @@ const Input = ({
   required,
   pattern,
   setValue,
+  placeholder,
 }: InputProps) => {
   const [validate, setValiDate] = useState(valid);
 
@@ -103,6 +105,7 @@ const Input = ({
         <input
           id={label}
           type={type}
+          placeholder={placeholder}
           css={(themes) => [
             css`
               width: 100%;
@@ -115,6 +118,10 @@ const Input = ({
               &:focus {
                 outline: 0;
                 border: 2px solid ${validate !== 'error' ? themes.color.purple050 : themes.color.red040};
+              }
+              ::placeholder {
+                color: ${themes.color.grey040};
+                ${themes.fontSize.body2}
               }
             `,
             inputCss,
