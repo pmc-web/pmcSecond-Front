@@ -30,6 +30,9 @@ const useTopBarClickHandler = (handleShowSideBar?: () => void) => {
         case 'alarm':
           // TODO: 추후 추가
           break;
+        case 'close':
+          router.back();
+          break;
         default:
           break;
       }

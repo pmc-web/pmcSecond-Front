@@ -24,4 +24,7 @@ const chipCss = css`
   background-color: ${theme.color.grey010};
   ${theme.fontSize.subtitle4};
   cursor: pointer;
+  &:hover {
+    background-color: ${theme.color.grey030};
+  }
 `;

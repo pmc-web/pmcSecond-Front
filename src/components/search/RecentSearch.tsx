@@ -1,12 +1,17 @@
 import { css } from '@emotion/react';
 import Text from 'src/components/common/Text';
 import Chip from 'src/components/common/Chip';
+import { useRouter } from 'next/router';
 
 const RecentSearch = () => {
+  const router = useRouter();
   const onRemove = () => null;
-  const onClick = (value: string) => () => {
-    console.log(value);
-  };
+  const onClick = (value: string) => () =>
+    router.push({
+      pathname: '/search/[searchName]',
+      query: { searchName: value },
+    });
+
   return (
     <section css={wrapperCss}>
       <div css={spaceBetweenCss}>

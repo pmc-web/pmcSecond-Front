@@ -7,14 +7,14 @@ const loginKey = () => ['auth', 'login'];
 const userKey = () => ['auth', 'user'];
 
 export const getSignUpApi = async (data: loginTypes) => {
-  const res = await axios.post('http://101.101.209.211/users/sign-up', data);
+  const res = await axios.post(`${process.env.API_URL}/users/sign-up`, data);
   return res.data;
 };
 
 export const useSignUpMutation = () => useMutation(signUpKey(), getSignUpApi);
 
 const getLoginApi = async (data: loginTypes) => {
-  const res = await axios.post('http://101.101.209.211/users/login', data);
+  const res = await axios.post(`${process.env.API_URL}/user/users/login`, data);
   return res.data.data;
 };
 
