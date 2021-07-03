@@ -1,7 +1,7 @@
 import TopBar from 'src/components/common/layout/TopBar';
 import Tab from 'src/components/common/tab/Tab';
-import WishItem from 'src/components/wish/WishItem';
-import WishCount from 'src/components/wish/WishCount';
+import WishItem from 'src/components/shopping/wish/WishItem';
+import WishCount from 'src/components/shopping/wish/WishCount';
 
 const productData = [
   { id: 1, name: '상품명', option: '상품 선택 옵션', price: '19,800원' },
@@ -14,7 +14,7 @@ const shopData = [
   { id: 2, name: '쇼핑몰' },
 ];
 
-const WishIndex = () => (
+const wishList = () => (
   <>
     <TopBar title="찜한내역" leftIcon="leftArrow" />
     <Tab>
@@ -37,4 +37,4 @@ const WishIndex = () => (
   </>
 );
 
-export default WishIndex;
+export default wishList;
