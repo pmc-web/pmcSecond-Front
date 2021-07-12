@@ -62,7 +62,7 @@ const EmailLogin = () => {
       `}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <TopBar onClick={onClick} leftIcon="leftArrow" title="이메일로 로그인" />
+      <TopBar leftIcon="leftArrow" title="이메일로 로그인" />
       <section
         css={(themes) => css`
           padding: 0 1.2em;
@@ -146,3 +146,16 @@ const EmailLogin = () => {
 };
 
 export default EmailLogin;
+
+// export const getServerSideProps = async () => {
+//   try {
+//     const res = await axios.post(`/users/login`, { email: 'hwon3794@gmail.com', password: '!adsf153246' });
+//     if (res.status === 200) {
+//       const user = res.data;
+//       return { props: { user } };
+//     }
+//     return { props: {} };
+//   } catch (error) {
+//     return { props: {} };
+//   }
+// };

@@ -13,6 +13,7 @@ import theme from 'src/assets/theme';
 axios.defaults.baseURL = process.env.API_URL;
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 axios.defaults.headers['Access-Control-Allow-Credentials'] = true;
+
 function App({ Component, pageProps }: AppProps) {
   const queryClientRef = useRef<null | QueryClient>(null);
   if (!queryClientRef.current) {
