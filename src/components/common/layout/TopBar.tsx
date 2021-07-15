@@ -10,11 +10,11 @@ type TopBarProps = {
   rightIcon?: Array<RightIconType>;
   title?: string;
   backgroundColor?: 'white' | 'grey080';
-  handleSideBar?: () => void;
+  onLeftIconClick?: () => void;
 };
 
-const TopBar = ({ leftIcon, title, rightIcon, backgroundColor = 'white', handleSideBar }: TopBarProps) => {
-  const onClick = useTopBarClickHandler(handleSideBar);
+const TopBar = ({ leftIcon, title, rightIcon, backgroundColor = 'white', onLeftIconClick }: TopBarProps) => {
+  const onClick = useTopBarClickHandler(onLeftIconClick);
   return (
     <header css={(theme) => headerCss(theme, backgroundColor)}>
       <span>
@@ -24,7 +24,7 @@ const TopBar = ({ leftIcon, title, rightIcon, backgroundColor = 'white', handleS
           </button>
         )}
       </span>
-      <span>
+      <span css={titleCss}>
         <Text.Title level={1} size="subtitle2" color={backgroundColor === 'white' ? 'black' : 'white'}>
           {title}
         </Text.Title>
@@ -66,4 +66,8 @@ const headerCss = (theme: Theme, backgroundColor: 'white' | 'grey080') => css`
       justify-content: space-between;
     }
   }
+`;
+
+const titleCss = css`
+  width: 40% !important;
 `;

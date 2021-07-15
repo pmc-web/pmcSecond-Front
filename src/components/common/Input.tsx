@@ -120,8 +120,8 @@ const Input = ({
                 border: 2px solid ${validate !== 'error' ? themes.color.purple050 : themes.color.red040};
               }
               ::placeholder {
-                color: ${theme.color.grey040};
-                font-weight: normal;
+                color: ${themes.color.grey040};
+                ${themes.fontSize.body2}
               }
             `,
             inputCss,
