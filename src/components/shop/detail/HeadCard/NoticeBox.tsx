@@ -1,14 +1,20 @@
 import { css, Theme } from '@emotion/react';
 import Text from 'src/components/common/Text';
+import { useToggle } from 'src/hooks';
+import Notice from '../../notice';
 
 const NoticeBox = () => {
-  const notice = 'aaaaa';
+  const notice = '공지사항 영역';
+  const [showNoticeModal, toggleNoticeModal] = useToggle();
   return (
-    <div css={wrapperCss}>
-      <Text size="body2" color="white">
-        {notice}
-      </Text>
-    </div>
+    <>
+      <Notice handleClose={toggleNoticeModal} isOpen={showNoticeModal} />
+      <div css={wrapperCss} onClick={toggleNoticeModal} role="button" tabIndex={0}>
+        <Text size="body2" color="white">
+          {notice}
+        </Text>
+      </div>
+    </>
   );
 };
 
@@ -23,4 +29,5 @@ const wrapperCss = (theme: Theme) => css`
   padding: 0.2rem 0.8rem;
   border-radius: 0.3rem;
   background-color: ${theme.color.grey050};
+  cursor: pointer;
 `;
