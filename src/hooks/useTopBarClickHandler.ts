@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { LeftIconType, RightIconType } from 'src/components/common/layout/types';
 
-const useTopBarClickHandler = (handleShowSideBar?: () => void) => {
+const useTopBarClickHandler = (handleLeftIconClick?: () => void) => {
   const router = useRouter();
   const onClickHandler = useCallback(
     (iconName: RightIconType | LeftIconType) => () => {
@@ -10,9 +10,14 @@ const useTopBarClickHandler = (handleShowSideBar?: () => void) => {
         case 'leftArrow':
           router.back();
           break;
+        case 'close':
+          if (handleLeftIconClick) {
+            handleLeftIconClick();
+          }
+          break;
         case 'menu':
-          if (handleShowSideBar) {
-            handleShowSideBar();
+          if (handleLeftIconClick) {
+            handleLeftIconClick();
           }
           break;
         case 'wishOn':
@@ -31,7 +36,7 @@ const useTopBarClickHandler = (handleShowSideBar?: () => void) => {
           break;
       }
     },
-    [router, handleShowSideBar]
+    [router, handleLeftIconClick]
   );
   return onClickHandler;
 };
