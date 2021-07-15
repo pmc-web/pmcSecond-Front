@@ -2,6 +2,7 @@ import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import { css, Theme } from '@emotion/react';
 import Input from 'src/components/common/Input';
 import Button from 'src/components/common/Button';
+import SwitchButton from './SwitchButton';
 
 type FormData = {
   deliveryName?: string;
@@ -51,27 +52,7 @@ const Payment = () => {
           </div>
         </div>
         {/* 환불계좌 */}
-        <div className="refundBox">
-          <p>환불계좌 입력</p>
-          <div>
-            <Button
-              htmlType="button"
-              size="large"
-              type="primary"
-              // onClick={onRouter}
-            >
-              사용안함
-            </Button>
-            <Button
-              htmlType="button"
-              size="large"
-              type="ghost"
-              // onClick={onRouter}
-            >
-              사용안함
-            </Button>
-          </div>
-        </div>
+        <SwitchButton title="환불계좌" onText="사용함" offText="사용안함" />
         {/* 반품 요청 가능 기간 */}
         <div className="selectBox">
           <p>배송(거래) 완료 후 </p>
@@ -111,6 +92,11 @@ const containerCss = (theme: Theme) => css`
       border-bottom: 1px solid ${theme.color.grey020};
     }
 
+    > div:nth-child(3) {
+      padding: 30px 0;
+      border-bottom: 1px solid ${theme.color.grey030};
+    }
+
     > .selectBox {
       padding: 30px 0;
       border-bottom: 1px solid ${theme.color.grey020};
@@ -127,34 +113,12 @@ const containerCss = (theme: Theme) => css`
         }
         select {
           height: 30px;
-          padding: 0 50px 0 30px;
+          padding: 0 30px 0 30px;
           margin: 0 9px;
-          -webkit-appearance: none; /* 크롬 화살표 없애기 */
-          -moz-appearance: none; /* 파이어폭스 화살표 없애기 */
-          appearance: none; /* 화살표 없애기 */
           ${theme.fontSize.subtitle3}
           border: 1px solid ${theme.color.purple050};
           border-radius: 6px;
           ${theme.commonStyle.flexCenter}
-        }
-      }
-    }
-
-    > .refundBox {
-      padding: 30px 0;
-      border-bottom: 1px solid ${theme.color.grey020};
-      > p {
-        margin-bottom: 16px;
-        ${theme.fontSize.body2}
-      }
-      > div {
-        display: flex;
-        justify-content: space-between;
-        > button {
-          border-radius: 6px;
-        }
-        > button:nth-child(1) {
-          margin-right: 15px;
         }
       }
     }
