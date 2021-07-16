@@ -6,9 +6,12 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Modal from 'react-modal';
 
 import GlobalStyle from 'src/assets/global/style';
 import theme from 'src/assets/theme';
+
+Modal.setAppElement('#__next');
 
 function App({ Component, pageProps }: AppProps) {
   const queryClientRef = useRef<null | QueryClient>(null);
