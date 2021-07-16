@@ -2,7 +2,7 @@ import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import { css, Theme } from '@emotion/react';
 import Input from 'src/components/common/Input';
 import Button from 'src/components/common/Button';
-import SwitchButton from './SwitchButton';
+import SwitchTab from './SwitchTab/SwitchTab';
 
 type FormData = {
   deliveryName?: string;
@@ -52,10 +52,14 @@ const Payment = () => {
           </div>
         </div>
         {/* 환불계좌 */}
-        <SwitchButton title="환불계좌" onText="사용함" offText="사용안함" />
+        <SwitchTab title="환불계좌">
+          <SwitchTab.TabItem label="사용함" />
+          <SwitchTab.TabItem label="사용안함" />
+        </SwitchTab>
+
         {/* 반품 요청 가능 기간 */}
         <div className="selectBox">
-          <p>배송(거래) 완료 후 </p>
+          <p>반품 요청 가능 기간</p>
           <div>
             <p>주문 후</p>
             <select>
@@ -94,7 +98,7 @@ const containerCss = (theme: Theme) => css`
 
     > div:nth-child(3) {
       padding: 30px 0;
-      border-bottom: 1px solid ${theme.color.grey030};
+      border-bottom: 1px solid ${theme.color.grey020};
     }
 
     > .selectBox {
@@ -121,6 +125,10 @@ const containerCss = (theme: Theme) => css`
           ${theme.commonStyle.flexCenter}
         }
       }
+    }
+
+    > div:nth-child(4) {
+      padding-top: 0;
     }
   }
 `;

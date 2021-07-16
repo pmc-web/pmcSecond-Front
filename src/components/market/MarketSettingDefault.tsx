@@ -2,6 +2,7 @@ import Input from 'src/components/common/Input';
 import { css, Theme } from '@emotion/react';
 import Button from 'src/components/common/Button';
 import { useForm, DeepMap, FieldError } from 'react-hook-form';
+import TextArea from 'src/components/common/TextArea';
 
 type FormData = {
   shopName?: string;
@@ -12,6 +13,7 @@ type FormData = {
   phone?: string;
   email?: string;
   shopThumnail?: string;
+  shopDescrtion?: string;
 };
 
 const MarketSettingDefault = () => {
@@ -107,7 +109,7 @@ const MarketSettingDefault = () => {
           style={inputCss()}
         />
         {/* 쇼핑몰 썸네일 */}
-        <div className="btnInput">
+        <div className="btnInput thumnail">
           <div>
             <Input
               label="쇼핑몰 썸네일"
@@ -122,12 +124,15 @@ const MarketSettingDefault = () => {
           </Button>
         </div>
         {/* 쇼핑몰 설명 */}
-        <div className="textAreaBox">
-          <label htmlFor="shopDescrtion">쇼핑몰 설명*</label>
-          <textarea placeholder="쇼핑몰을 소개하는 짧은 글을 입력해주세요." id="shopDescrtion" />
-        </div>
+        <TextArea
+          label="쇼핑몰 설명*"
+          name="shopDescrtion"
+          setValue={setValue}
+          register={register}
+          placeholder="쇼핑몰을 소개하는 짧은 글을 입력해주세요."
+        />
       </section>
-      {/* 완료 버튼 */}
+
       <Button
         htmlType="button"
         size="large"
@@ -141,7 +146,7 @@ const MarketSettingDefault = () => {
   );
 };
 
-const containerCss = (theme: Theme) => css`
+const containerCss = () => css`
   padding: 30px 1.2em 100px 1.2em;
 
   .btnInput {
@@ -161,26 +166,8 @@ const containerCss = (theme: Theme) => css`
     }
   }
 
-  .textAreaBox {
-    margin-top: 1.875em;
-    > label {
-      display: block;
-      color: ${theme.color.grey030};
-    }
-    > textArea {
-      width: 100%;
-      min-height: 108px;
-      margin-top: 0.5em;
-      border: 2px solid ${theme.color.grey030};
-      padding: 1.05em;
-      border-radius: 6px;
-      color: ${theme.color.black};
-      ${theme.fontSize.subtitle3};
-      ::placeholder {
-        color: ${theme.color.grey040};
-        font-weight: normal;
-      }
-    }
+  .thumnail {
+    margin-bottom: 1.875em;
   }
 `;
 
