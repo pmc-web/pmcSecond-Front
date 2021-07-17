@@ -2,7 +2,7 @@ import { css, Theme } from '@emotion/react';
 import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import Button from 'src/components/common/Button';
 import TextArea from 'src/components/common/TextArea';
-
+import Select from 'src/components/common/Select';
 import SwitchTab from './SwitchTab/SwitchTab';
 
 type FormData = {
@@ -17,19 +17,18 @@ const Delivery = () => {
     setValue,
     formState: { errors },
   } = useForm<FormData>({ mode: 'onChange' });
+
   return (
     <div css={containerCss}>
       <section>
         <div className="selectBox">
           <p>택배회사</p>
-          <select>
-            <option value="" hidden selected disabled className="test">
-              택배 회사를 선택해주세요.
-            </option>
-            <option value="1">대한통운</option>
-            <option value="2">로젠택배</option>
-            <option value="3">롯데택배</option>
-          </select>
+          <Select
+            option={['대한통운', '로젠택배', '롯데택배']}
+            keys={['1', '2', '3']}
+            placeholder="택배회사를 선택해주세요"
+            style={selectCss()}
+          />
         </div>
         {/* 배송메모 */}
         <TextArea
@@ -75,11 +74,11 @@ const containerCss = (theme: Theme) => css`
         color: ${theme.color.grey030};
       }
       select {
+        margin: 0;
         width: 100%;
         border-radius: 6px;
         border: 1px solid ${theme.color.grey030};
         height: 54px;
-        padding: 0 12px;
       }
     }
   }
@@ -92,6 +91,12 @@ const textareaCss = () => css`
 const saveBtnCss = () => css`
   position: fixed;
   bottom: 0;
+`;
+
+const selectCss = () => css`
+  div {
+    right: 5%;
+  }
 `;
 
 export default Delivery;

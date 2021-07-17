@@ -2,6 +2,7 @@ import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import { css, Theme } from '@emotion/react';
 import Input from 'src/components/common/Input';
 import Button from 'src/components/common/Button';
+import Select from 'src/components/common/Select';
 import SwitchTab from './SwitchTab/SwitchTab';
 
 type FormData = {
@@ -39,15 +40,7 @@ const Payment = () => {
           <p>입금 기한</p>
           <div>
             <p>주문 후</p>
-            <select>
-              <option value="1" selected>
-                1
-              </option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            <Select option={['1', '2', '3', '4', '5']} keys={['1', '2', '3', '4', '5']} />
             <p>일 이내 미입금 시 취소</p>
           </div>
         </div>
@@ -60,17 +53,10 @@ const Payment = () => {
         {/* 반품 요청 가능 기간 */}
         <div className="selectBox">
           <p>반품 요청 가능 기간</p>
+
           <div>
             <p>주문 후</p>
-            <select>
-              <option value="1" selected>
-                1
-              </option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            <Select option={['1', '2', '3', '4', '5']} keys={['1', '2', '3', '4', '5']} />
             <p>일 이내</p>
           </div>
         </div>
@@ -114,15 +100,6 @@ const containerCss = (theme: Theme) => css`
         > p {
           ${theme.fontSize.body2}
           color: ${theme.color.grey040};
-        }
-        select {
-          height: 30px;
-          padding: 0 30px 0 30px;
-          margin: 0 9px;
-          ${theme.fontSize.subtitle3}
-          border: 1px solid ${theme.color.purple050};
-          border-radius: 6px;
-          ${theme.commonStyle.flexCenter}
         }
       }
     }
