@@ -8,7 +8,8 @@ const loginKey = () => ['auth', 'login'];
 const userKey = () => ['auth', 'user'];
 
 export const getSignUpApi = async (data: loginTypes) => {
-  const res = await axios.post(`/users/sign-up`, data);
+  axios.defaults.baseURL = `${process.env.API_URL}:8086`;
+  const res = await axios.post(`users/sign-up`, data);
   return res.data;
 };
 
