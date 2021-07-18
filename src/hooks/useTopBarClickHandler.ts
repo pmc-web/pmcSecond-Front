@@ -20,6 +20,9 @@ const useTopBarClickHandler = (handleLeftIconClick?: () => void) => {
             handleLeftIconClick();
           }
           break;
+        case 'search':
+          router.push('/search');
+          break;
         case 'wishOn':
           // TODO: 추후 추가
           break;
@@ -31,6 +34,9 @@ const useTopBarClickHandler = (handleLeftIconClick?: () => void) => {
           break;
         case 'alarm':
           // TODO: 추후 추가
+          break;
+        case 'close':
+          router.back();
           break;
         default:
           break;

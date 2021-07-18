@@ -12,7 +12,7 @@ const AuthIndex = () => {
     router.push('/auth/emailLogin');
   };
   const onKakaoLogin = () => {
-    window.open('http://101.101.209.211/auth/kakao');
+    window.open(`${process.env.API_URL}/auth/kakao`);
   };
   return (
     <section
