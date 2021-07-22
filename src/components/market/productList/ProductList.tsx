@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import ProductItem from './ProductItem';
 
-const data = [{ id: 1 }, { id: 2 }];
+const data = [{ id: '1' }, { id: '2' }];
 
 const ProductList = () => (
   <ul
@@ -10,7 +10,7 @@ const ProductList = () => (
     `}
   >
     {data.map((item) => (
-      <ProductItem key={item.id} />
+      <ProductItem key={item.id} id={item.id} />
     ))}
   </ul>
 );

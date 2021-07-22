@@ -1,8 +1,12 @@
 import { css, Theme } from '@emotion/react';
 
-const ProductItem = () => (
+type ProductItemProps = {
+  id: string;
+};
+
+const ProductItem = ({ id }: ProductItemProps) => (
   <li css={conatinerCss}>
-    <input type="checkbox" name="all" value="all" className="checkBox" />
+    <input type="checkbox" name="productChange" value={id} className="checkBox" />
     <div className="productBox">
       {/* 이미지 영역 */}
       <div className="imageWrap" />

@@ -18,6 +18,7 @@ type InputProps = {
   type?: 'text' | 'password';
   valid?: 'success' | 'error' | 'close' | 'null';
   placeholder?: string;
+  description?: string;
 };
 
 const Input = ({
@@ -33,6 +34,7 @@ const Input = ({
   pattern,
   setValue,
   placeholder,
+  description,
 }: InputProps) => {
   const [validate, setValiDate] = useState(valid);
 
@@ -86,16 +88,30 @@ const Input = ({
   }, [valid]);
   return (
     <div onChange={onChange} onFocus={onFocus} onBlur={onBlur}>
-      <label
-        ref={focus}
-        htmlFor={label}
+      <div
         css={(themes) => css`
-          display: block;
-          color: ${themes.color.grey030};
+          display: flex;
+          align-items: center;
+          > span {
+            ${themes.fontSize.caption1};
+            color: ${themes.color.purple020};
+            display: block;
+            margin-left: 6px;
+          }
         `}
       >
-        {label}
-      </label>
+        <label
+          ref={focus}
+          htmlFor={label}
+          css={(themes) => css`
+            display: block;
+            color: ${themes.color.grey030};
+          `}
+        >
+          {label}
+        </label>
+        {description && <span>{description}</span>}
+      </div>
       <div
         css={css`
           display: inline;
