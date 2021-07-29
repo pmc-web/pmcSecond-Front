@@ -27,7 +27,7 @@ const Layout = ({ children, title, leftIcon, rightIcon }: LayoutProps) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <TopBar title={title} leftIcon={leftIcon} rightIcon={rightIcon} handleSideBar={toggleSideBar} />
+      <TopBar title={title} leftIcon={leftIcon} rightIcon={rightIcon} onLeftIconClick={toggleSideBar} />
       <SideBar
         visible={showSideBar}
         onClickBackground={toggleSideBar}
