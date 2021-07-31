@@ -5,7 +5,7 @@ import theme from 'src/assets/theme';
 import Icon from './Icon';
 
 // doc사이트 https://react-hook-form.com/get-started
-type InputProps = {
+type TextAreaProps = {
   name: string;
   register: UseFormRegister<FieldValues>;
   setValue: UseFormSetValue<FieldValues>;
@@ -15,17 +15,14 @@ type InputProps = {
   pattern?: ValidationRule<RegExp>;
   style?: ReturnType<typeof css>;
   label?: string;
-  type?: 'text' | 'password';
   valid?: 'success' | 'error' | 'close' | 'null';
   placeholder?: string;
   description?: string;
 };
-
-const Input = ({
+const TextArea = ({
   disabled = false,
   valid,
   name,
-  type,
   label,
   style: inputCss,
   defaultValue,
@@ -35,7 +32,7 @@ const Input = ({
   setValue,
   placeholder,
   description,
-}: InputProps) => {
+}: TextAreaProps) => {
   const [validate, setValiDate] = useState(valid);
 
   const [close, setClose] = useState(false);
@@ -118,13 +115,13 @@ const Input = ({
           position: relative;
         `}
       >
-        <input
+        <textarea
           id={label}
-          type={type}
           placeholder={placeholder}
           css={(themes) => [
             css`
               width: 100%;
+              min-height: 108px;
               margin-top: 0.5em;
               border: 2px solid ${validate !== 'error' ? themes.color.grey030 : themes.color.red040};
               padding: 1.05em;
@@ -174,4 +171,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default TextArea;
