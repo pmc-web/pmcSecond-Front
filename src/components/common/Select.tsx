@@ -17,7 +17,7 @@ const Select = ({ option, keys, placeholder, style: selectss }: SelectProps) => 
         </option>
       )}
       {keys.map((item, index) => (
-        <option key={item} selected={!placeholder && index === 0}>
+        <option key={item} selected={!placeholder && index === 0} value={item}>
           {option[index]}
         </option>
       ))}
