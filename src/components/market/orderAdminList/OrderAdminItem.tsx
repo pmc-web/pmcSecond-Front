@@ -1,22 +1,22 @@
 import { css, Theme } from '@emotion/react';
 import Link from 'next/link';
 
-type ProductItemProps = {
+type OrderAdminItemProps = {
   id: string;
 };
 
-const ProductItem = ({ id }: ProductItemProps) => (
+const OrderAdminItem = ({ id }: OrderAdminItemProps) => (
   <li css={conatinerCss}>
     <Link href="/market/orderAdminDetail">
       <a>
         <input type="checkbox" name="productChange" value={id} className="checkBox" />
-        <div className="productBox">
+        <div className="orderBox">
           {/* 컨텐츠 영역 */}
           <div className="contentWrap">
-            <p className="productName">주문번호 [20210213-0000001]</p>
+            <p className="orderNumber">주문번호 [20210213-0000001]</p>
             <>
-              <p className="producOption">상품명</p>
-              <p className="productPrice">결제완료 | 배송중(1), 배송완료(3)</p>
+              <p className="orderProduct">상품명</p>
+              <p className="orderOption">결제완료 | 배송중(1), 배송완료(3)</p>
             </>
           </div>
         </div>
@@ -39,7 +39,7 @@ const conatinerCss = (theme: Theme) => css`
       height: 16px;
     }
 
-    .productBox {
+    .orderBox {
       display: flex;
       align-items: flex-end;
       .imageWrap {
@@ -50,15 +50,15 @@ const conatinerCss = (theme: Theme) => css`
       .contentWrap {
         margin-left: 10px;
         flex: 1;
-        > .productName {
+        > .orderNumber {
           ${theme.fontSize.caption2};
           color: ${theme.color.grey040};
         }
-        > .producOption {
+        > .orderProduct {
           ${theme.fontSize.caption1};
           color: ${theme.color.black};
         }
-        > .productPrice {
+        > .orderOption {
           margin-top: 6px;
           ${theme.fontSize.caption1};
           color: ${theme.color.grey040};
@@ -84,4 +84,4 @@ const conatinerCss = (theme: Theme) => css`
   }
 `;
 
-export default ProductItem;
+export default OrderAdminItem;
