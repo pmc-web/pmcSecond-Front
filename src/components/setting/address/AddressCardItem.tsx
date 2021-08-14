@@ -5,15 +5,21 @@ type AddressCardItemProps = {
   mainAddress: string;
   detailAdress: string;
   phone: string;
+  addressId: number;
+  onDelete: (id: number) => void;
 };
 
-const AddressCardItem = ({ title, mainAddress, detailAdress, phone }: AddressCardItemProps) => (
+const AddressCardItem = ({ title, mainAddress, detailAdress, phone, addressId, onDelete }: AddressCardItemProps) => (
   <li css={containerCss}>
     <div className="addressTitle">
       <p>{title}</p>
       <div className="addressTitleBtn">
         <p>수정</p>
-        <p>삭제</p>
+        <p>
+          <span role="button" onClick={() => onDelete(addressId)} tabIndex={0}>
+            삭제
+          </span>
+        </p>
       </div>
     </div>
     <div className="addressContent">

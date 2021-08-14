@@ -1,9 +1,12 @@
 import { css, Theme } from '@emotion/react';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
 import { useForm, DeepMap, FieldError } from 'react-hook-form';
 import Button from 'src/components/common/Button';
 import Input from 'src/components/common/Input';
 import TopBar from 'src/components/common/layout/TopBar';
+import { useUserDataMutation } from 'src/modules/auth';
 
 type FormData = {
   email?: string;
@@ -21,6 +24,17 @@ const ChangeInfo = () => {
     formState: { errors },
   } = useForm<FormData>({ mode: 'onChange' });
   const router = useRouter();
+  const mutation = useUserDataMutation();
+  const [info, setInfo] = useState({ email: '', authKey: '' });
+
+  const getUserData = async () => {
+    try {
+      const result = await mutation.mutateAsync({ id: 10 });
+      setInfo(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onValid = (name: keyof DeepMap<FormData, FieldError>) => {
     if (errors[name]) {
@@ -33,6 +47,15 @@ const ChangeInfo = () => {
     router.push('/setting/changePw');
   };
 
+  useEffect(() => {
+    setValue('nickname', info.authKey);
+    setValue('email', info.email);
+    setValue('phone', info.email);
+  }, [info]);
+  useEffect(() => {
+    getUserData();
+  }, []);
+
   return (
     <>
       <TopBar title="회원정보 수정" leftIcon="leftArrow" />
@@ -44,7 +67,7 @@ const ChangeInfo = () => {
           setValue={setValue}
           register={register}
           style={inputCss()}
-          placeholder="info@marketuniverse.co.kr"
+          placeholder={info.email}
         />
         {/* 닉네임 */}
         <div className="btnInput">

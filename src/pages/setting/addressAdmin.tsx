@@ -10,6 +10,7 @@ const AddressAdmin = () => {
   const onMoveAddressAdd = () => {
     router.push('/setting/addressAdd');
   };
+
   return (
     <>
       <TopBar title="주소지 관리" leftIcon="leftArrow" />

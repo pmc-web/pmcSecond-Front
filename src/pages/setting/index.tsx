@@ -1,11 +1,14 @@
 import { css } from '@emotion/react';
 import TopBar from 'src/components/common/layout/TopBar';
 import SideBarItem from 'src/components/common/layout/SideBarItem';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useUserDataMutation } from 'src/modules/auth';
 
 const SettingIndex = () => {
   const router = useRouter();
+  const mutation = useUserDataMutation();
+  const [info, setInfo] = useState({ authKey: '', email: '' });
   // 회원정보 이동
   const onChangeInfo = useCallback(() => {
     router.push('/setting/changeInfo');
@@ -14,6 +17,21 @@ const SettingIndex = () => {
   const onAddressAdmin = useCallback(() => {
     router.push('/setting/addressAdmin');
   }, [router]);
+
+  const getUserData = async () => {
+    try {
+      const result = await mutation.mutateAsync({ id: 10 });
+      console.log(result);
+      // setInfo({ authKey: result.authKey, email: result.email });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <section>
       {/* 헤더 */}
@@ -48,7 +66,7 @@ const SettingIndex = () => {
               `
             }
           >
-            부여번호
+            {info.authKey}
           </p>
           <p
             css={(theme) =>
@@ -57,7 +75,7 @@ const SettingIndex = () => {
               `
             }
           >
-            info@marketuniverse.co.kr
+            {info.email}
           </p>
         </div>
       </div>
